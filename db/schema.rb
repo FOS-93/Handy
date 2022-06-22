@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_22_001558) do
+ActiveRecord::Schema.define(version: 2022_06_22_010313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "date"
+    t.text "description"
+    t.string "status"
+    t.string "skill"
+    t.bigint "user_id", null: false
+    t.bigint "handyman_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["handyman_id"], name: "index_appointments_on_handyman_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "handymen", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_handymen_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "stars"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "appointment_id", null: false
+    t.bigint "handyman_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+    t.index ["handyman_id"], name: "index_reviews_on_handyman_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "level"
+    t.text "description"
+    t.bigint "handyman_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["handyman_id"], name: "index_skills_on_handyman_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +68,19 @@ ActiveRecord::Schema.define(version: 2022_06_22_001558) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "handymen"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "handymen", "users"
+  add_foreign_key "reviews", "appointments"
+  add_foreign_key "reviews", "handymen"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "skills", "handymen"
 end
