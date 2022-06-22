@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_22_005710) do
+ActiveRecord::Schema.define(version: 2022_06_22_010313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 2022_06_22_005710) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_handymen_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "stars"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "appointment_id", null: false
+    t.bigint "handyman_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
+    t.index ["handyman_id"], name: "index_reviews_on_handyman_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -66,5 +79,8 @@ ActiveRecord::Schema.define(version: 2022_06_22_005710) do
   add_foreign_key "appointments", "handymen"
   add_foreign_key "appointments", "users"
   add_foreign_key "handymen", "users"
+  add_foreign_key "reviews", "appointments"
+  add_foreign_key "reviews", "handymen"
+  add_foreign_key "reviews", "users"
   add_foreign_key "skills", "handymen"
 end

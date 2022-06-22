@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_one :handyman
   has_many :appointments
+  has_many :reviews
 end
