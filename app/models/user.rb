@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_one :handyman
   has_many :appointments
   has_many :reviews
+
+  before_save :set_full_name
+
+  private
+
+  def set_full_name
+    self.full_name = "#{self.first_name} #{self.last_name}".strip
+  end
 end
