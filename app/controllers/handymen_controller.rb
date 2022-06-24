@@ -11,7 +11,7 @@ class HandymenController < ApplicationController
     @user = User.find(params[:user_id])
     @handyman.user = @user
     @handyman.save
-    redirect_to root_path
+    redirect_to my_profile_path
   end
 
   private
