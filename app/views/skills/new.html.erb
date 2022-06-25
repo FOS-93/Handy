@@ -1,0 +1,9 @@
+<%= simple_form_for [@handyman, @skill] do |f|  %>
+  <%= f.input :name, :collection => %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter] %>
+  <%= f.input :level, :collection => %w[Amateur Advanced Technical Professional] %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Add another one?', new_handyman_skill_path(@handyman), class:"btn btn-info"%>
+<%= link_to 'Back', my_profile_path, class:"btn btn-info"%>
