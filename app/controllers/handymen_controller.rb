@@ -1,7 +1,8 @@
 class HandymenController < ApplicationController
 
   def index
-    @handyman = Handyman.all
+    # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
+    @handyman = Handyman.all.reject { |handyman| handyman.id == current_user.id }
   end
 
   def new
