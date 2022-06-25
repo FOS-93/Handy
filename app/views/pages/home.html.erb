@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# LANDING TOP %>
+<div class="landing-top">
+
+  <%# BANNER %>
+  <div class="banner">
+    <div class="container">
+      <h1>Handy!</h1>
+      <h2>Your trouble in the hands of the expert</h2>
+    </div>
+  </div>
+
+  <%# LOGO %>
+  <div class="logo"></div>
+
+  <%# SEARCH SPACE %>
+  <div class="container">
+    <div class="search-box">
+      <h3>Look for your Handyman</h3>
+
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="form-group">
+          <input class="grow" type="text" name="search[query]" />
+          <button type="submit" class="btn btn-success d-flex">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%# CARDS SPACE %>
+  <div class="container">
+    <div class="cards">
+      <%= render 'shared/handyman_card' %>
+      <%= render 'shared/handyman_card' %>
+      <%= render 'shared/handyman_card' %>
+    </div>
+  </div>
+
+</div>
