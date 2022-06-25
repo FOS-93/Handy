@@ -4,11 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :handyman
-  has_many :appointments
-  has_many :reviews
-
-
+  has_one :handyman, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   def is_handyman?
     handyman = Handyman.find_by(user_id: id)

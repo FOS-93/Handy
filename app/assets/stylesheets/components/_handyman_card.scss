@@ -7,6 +7,35 @@
   margin: 20px 0px;
 }
 
+.card-img {
+  text-align: center;
+}
+
+.card-info {
+  display: flex;
+  background-color: #305349;
+  color: #FFE073;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.skills {
+  background-color: grey;
+  border-radius: 5px;
+  padding: 5px;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.division {
+  background-color: white;
+  width: 5px;
+  height: 120px;
+  margin: 0px 5px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
