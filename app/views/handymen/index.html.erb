@@ -1,13 +1,8 @@
 <div class="container">
-  <div class="row jutify-content-center m-5">
-    <div class="col-md-6 style-list">
-      <% @handyman.each do |handyman|%>
-      <li><%= handyman.user.full_name %></li>
-      <li><%= handyman.description %></li>
-      <li><%= handyman.location %></li>
-      <li><%= link_to 'Hire', new_handyman_appointment_path(handyman) %>  </li>
-      <% end %>
-    </div>
+  <div class="cards">
+    <% @handyman.each do |handyman|%>
+      <%= render 'shared/handyman_card', handyman: handyman %>
+    <% end %>
   </div>
     <%= link_to "Back", root_path, class:"green_btn" %>
 </div>

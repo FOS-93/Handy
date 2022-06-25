@@ -1,10 +1,31 @@
 <div class="handyman-card">
   <div class="card-img">
     <h1>imagen</h1>
+    <div>
+      <%='<i class="fas fa-solid fa-star"></i>'.html_safe * 5%>
+      <p>Reviews</p>
+      <h4> <%= handyman.user.full_name %></h4>
+    </div>
   </div>
   <div class="card-info">
-    <h4>Nombre</h4>
-    <p>Skill</p>
-    <i class="fas fa-solid fa-star"></i>
+    <div class="skills-location">
+      <div class="skills">
+        <% handyman.skills.each do |skill| %>
+          <div class="skill">
+            <p><%= skill.name %></p>
+            <p><%= skill.level %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="location">
+        <p> <%= handyman.location %></p>
+      </div>
+    </div>
+    <div class="division">
+      <p></p>
+    </div>
+    <div class="member-since">
+      <%= handyman.created_at %>
+    </div>
   </div>
 </div>
