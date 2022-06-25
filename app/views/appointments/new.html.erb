@@ -1,6 +1,7 @@
-<%= simple_form_for(@handyman) do |f|  %>
+<%= simple_form_for [@handyman, @appointment] do |f|  %>
+  <%= f.input :date %>
   <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :skill %>
   <%= f.submit %>
 <% end %>
 

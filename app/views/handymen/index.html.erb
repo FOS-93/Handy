@@ -1,0 +1,6 @@
+<% @handyman.each do |handyman|%>
+<li><%= handyman.user.full_name %></li>
+<li><%= handyman.description %></li>
+<li><%= handyman.location %></li>
+<li><%= link_to 'Hire', new_handyman_appointment_path(handyman) %>  </li>
+<% end %>
