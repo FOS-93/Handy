@@ -15,6 +15,25 @@ class SkillsController < ApplicationController
     end
   end
 
+  def edit
+    @skill = Skill.find(params[:id])
+  end
+
+  def update
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      redirect_to my_profile_path
+    else
+      render new
+    end
+  end
+
+  def destroy
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to my_profile_path
+  end
+
   private
 
   def skill_params

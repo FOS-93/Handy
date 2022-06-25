@@ -25,6 +25,8 @@
 
         <% @user.handyman.skills.each do |skill| %>
           <p><%= skill.name %> - <%= skill.level %></p>
+          <%= link_to 'Edit Skill', edit_skill_path(skill), class:"btn btn-info"%>
+           <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
         <% end %>
       <% end %>
     </div>

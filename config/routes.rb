@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :appointments, only: %i[new create]
   end
 
+  resources :skills, only: %i[edit update destroy]
 
   get "/my_profile", to: "pages#my_profile", as: :my_profile
-
 end
