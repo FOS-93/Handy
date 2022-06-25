@@ -31,9 +31,9 @@
   <%# CARDS SPACE %>
   <div class="container">
     <div class="cards">
-      <%= render 'shared/handyman_card' %>
-      <%= render 'shared/handyman_card' %>
-      <%= render 'shared/handyman_card' %>
+      <% @handyman.each do |handyman|%>
+        <%= render 'shared/handyman_card', handyman: handyman %>
+      <% end %>
     </div>
   </div>
   <%= link_to "Find a Handy", handymen_path %>
