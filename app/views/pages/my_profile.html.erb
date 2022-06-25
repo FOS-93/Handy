@@ -8,22 +8,24 @@
       <p>Email: <%= @user.email %></p>
 
       <%# falta la zona horaria %>
-      
+
       <p>Member since: <%= @user.created_at.strftime('%B %e, %Y') %></p>
       <%= link_to "Edit my profile", edit_user_registration_path %>
       <% unless @user.is_handyman? %>
         <%= link_to "Create your Handy profile", new_user_handyman_path(@user) %>
       <% end %>
 
-      <h1>Handyman Profile</h1>
+      <% if @user.is_handyman? %>
+        <h1>Handyman Profile</h1>
 
-      <p>Location: <%= @user.handyman.location %></p>
-      <p>About me: <%= @user.handyman.description %></p>
+        <p>Location: <%= @user.handyman.location %></p>
+        <p>About me: <%= @user.handyman.description %></p>
 
-      <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+        <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
 
-      <% @user.handyman.skills.each do |skill| %>
-        <p><%= skill.name %> - <%= skill.level %></p>
+        <% @user.handyman.skills.each do |skill| %>
+          <p><%= skill.name %> - <%= skill.level %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
