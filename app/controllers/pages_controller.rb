@@ -2,7 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @handyman = Handyman.all.sample(6)
+    if params[:search][:query].present?
+      @handyman = Handyman.global_search(params[:search][:query])
+    else
+      @handyman = Handyman.all.sample(6)
+    end
   end
 
   def my_profile
