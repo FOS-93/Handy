@@ -144,7 +144,7 @@ puts User.last.first_name
 
 Handyman.create!(
   description: 'para algunos será una sorpresa encontrarme acá, pero la verdad es que siempre he tenido estos talentos ocultos',
-  location: 'Puerto Madero, Argentina',
+  location: 'Maipu, Santiago, Chile',
   user_id: User.last.id
 )
 
@@ -169,7 +169,7 @@ puts User.last.first_name
 
 Handyman.create!(
   description: 'Además de jugar al futbol, los trabajos manuales se me dan muy bien',
-  location: 'Tocopilla, Chile',
+  location: 'La Florida, Santiago, Chile',
   user_id: User.last.id
 )
 

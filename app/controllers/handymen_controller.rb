@@ -2,12 +2,14 @@ class HandymenController < ApplicationController
 
   def index
     # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
-    @handyman = Handyman.all.reject { |handyman| handyman.id == current_user.id }
+    @handyman = Handyman.where.not(id: current_user.id)
     # the `geocoded` scope filters only handymans with coordinates (latitude & longitude)
     @markers = @handyman.geocoded.map do |handyman|
       {
         lat: handyman.latitude,
-        lng: handyman.longitude
+        lng: handyman.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { handyman: handyman }),
+        image_url: helpers.asset_url("wrench.png")
       }
     end
   end
