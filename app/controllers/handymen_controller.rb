@@ -3,6 +3,13 @@ class HandymenController < ApplicationController
   def index
     # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
     @handyman = Handyman.all.reject { |handyman| handyman.id == current_user.id }
+    # the `geocoded` scope filters only handymans with coordinates (latitude & longitude)
+    @markers = @handyman.geocoded.map do |handyman|
+      {
+        lat: handyman.latitude,
+        lng: handyman.longitude
+      }
+    end
   end
 
   def new

@@ -1,6 +1,7 @@
 puts "Borrando datos anteriores"
 
 Skill.delete_all
+Appointment.delete_all
 Handyman.delete_all
 User.delete_all
 
