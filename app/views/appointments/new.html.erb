@@ -1,8 +1,8 @@
 <%= simple_form_for [@handyman, @appointment] do |f|  %>
   <%= f.input :date %>
   <%= f.input :description %>
-  <%= f.input :skill %>
+  <%= f.input :skill, :collection => @handyman.skills %>
   <%= f.submit %>
 <% end %>
 
-<%= link_to 'Back', my_profile_path, class:"btn btn-info"%>
+<%= link_to 'Back', root_path, class:"btn btn-info"%>
