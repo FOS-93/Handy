@@ -31,6 +31,26 @@ class HandymenController < ApplicationController
     end
   end
 
+  def edit
+    @handyman = Handyman.find(params[:id])
+  end
+
+  def update
+    @handyman = Handyman.find(params[:id])
+    if @handyman.update(handyman_params)
+      redirect_to my_profile_path, notice: 'handyman was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @handyman = Handyman.find(params[:id])
+    @handyman.destroy
+    redirect_to my_profile_path, notice: 'handyman was successfully deleted.'
+  end
+
+
   private
 
   def handyman_params
