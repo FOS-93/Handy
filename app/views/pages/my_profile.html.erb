@@ -33,5 +33,13 @@
         <% end %>
       <% end %>
     </div>
+    <div class="col md-6">
+      <h1>My Appointments</h1>
+      <% @user.appointments.each do |a| %>
+        <p> Handyman: <%= a.handyman.user.full_name %></p>
+        <p> Description: <%= a.description %></p>
+        <p> When: <%= a.date.strftime('%B %e, %Y') %></p>
+      <% end  %>
+    </div>
   </div>
 </div>
