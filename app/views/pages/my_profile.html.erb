@@ -20,11 +20,14 @@
 
         <p>Location: <%= @user.handyman.location %></p>
         <p>About me: <%= @user.handyman.description %></p>
-
-        <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Edit Handyman', edit_handyman_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Delete Handyman', @user.handyman, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info"%>
 
         <% @user.handyman.skills.each do |skill| %>
           <p><%= skill.name %> - <%= skill.level %></p>
+          <p><%= skill.description %></p>
+
           <%= link_to 'Edit Skill', edit_skill_path(skill), class:"btn btn-info"%>
            <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
         <% end %>
