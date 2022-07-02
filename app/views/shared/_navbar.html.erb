@@ -1,10 +1,10 @@
+ <% if user_signed_in? %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <% if user_signed_in? %>
     <%= link_to handymen_path, class: "navbar-brand" do %>
       <%= image_tag "handyman-logo.png" %>
     <% end %>
-    <% end %>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", handymen_path, class: "nav-link" %>
           </li>
@@ -31,8 +30,8 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-        <% end %>
       </ul>
     </div>
   </div>
 </div>
+<% end %>
