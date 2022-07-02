@@ -19,6 +19,13 @@ class HandymenController < ApplicationController
     @handyman = Handyman.new
   end
 
+  def show
+    @handyman = Handyman.find(params[:id])
+    @reviews_handyman = @handyman.reviews.filter do |r|
+      r.author != current_user.email
+    end
+  end
+
   def create
     @handyman = Handyman.new(handyman_params)
     # we need `user_id` to associate handyman with corresponding user

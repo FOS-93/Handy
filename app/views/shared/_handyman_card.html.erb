@@ -1,9 +1,10 @@
 <div class="handyman-card">
   <div class="card-img">
-    <h1>imagen</h1>
+    <%= cl_image_tag(handyman.user.photo.key) %>
     <div>
       <%='<i class="fas fa-solid fa-star"></i>'.html_safe * 5%>
-      <p>Reviews</p>
+      <p>Reviews:<%= handyman.reviews.filter {|r| r.author != current_user.email}.count %></p>
+
       <h4> <%= handyman.user.full_name %></h4>
     </div>
   </div>
@@ -26,7 +27,8 @@
     </div>
     <div class="member-since">
       <p><%= handyman.created_at %></p>
-      <p><%= link_to "Make an appointment", new_handyman_appointment_path(handyman.id)  %></p>
+      <%= link_to "Book", new_handyman_appointment_path(handyman.id), class:"btn btn-info" %>
+      <%= link_to "More info", handyman_path(handyman.id), class:"btn btn-info" %>
     </div>
   </div>
 </div>

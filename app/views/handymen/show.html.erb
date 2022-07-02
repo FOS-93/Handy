@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 m-5 text-center">
+      <h1>Handyman</h1>
+      <%= cl_image_tag(@handyman.user.photo.key) %>
+      <h4> <%= @handyman.user.full_name %></h4>
+      <% @handyman.skills.each do |skill| %>
+        <div class="skill">
+          <p><%= skill.name %></p>
+          <p><%= skill.level %></p>
+        </div>
+      <% end %>
+      <div class="member-since">
+        <p><%= @handyman.created_at %></p>
+        <%= link_to "Book", new_handyman_appointment_path(@handyman), class:"btn btn-info" %>
+      </div>
+      <br>
+      <%= link_to 'Back', handymen_path, class:"btn btn-info"%>
+    </div>
+  </div>
+</div>
