@@ -11,8 +11,15 @@ class PagesController < ApplicationController
 
   def my_profile
     @user = current_user
-    @reviews_received = @user.reviews.filter do |r|
+
+    @reviews_user = @user.reviews.filter do |r|
       r.author != @user.email
+    end
+
+    if @user.handyman
+      @reviews_handyman = @user.handyman.reviews.filter do |r|
+        r.author != @user.email
+      end
     end
   end
 
