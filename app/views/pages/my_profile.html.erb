@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center text-center">
-    <div class="col md-6">
+    <%# INFO USUARIO & HANDYMAN %>
+    <div class="col-md">
 
       <h1>User Profile</h1>
 
@@ -20,23 +21,57 @@
 
         <p>Location: <%= @user.handyman.location %></p>
         <p>About me: <%= @user.handyman.description %></p>
-
-        <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Edit Handyman', edit_handyman_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+         <%= link_to 'Delete Handyman', @user.handyman, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info"%>
 
         <% @user.handyman.skills.each do |skill| %>
           <p><%= skill.name %> - <%= skill.level %></p>
+          <p><%= skill.description %></p>
+
           <%= link_to 'Edit Skill', edit_skill_path(skill), class:"btn btn-info"%>
-           <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
+          <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
         <% end %>
       <% end %>
     </div>
-    <div class="col md-6">
-      <h1>My Appointments</h1>
-      <% @user.appointments.each do |a| %>
-        <p> Handyman: <%= a.handyman.user.full_name %></p>
-        <p> Description: <%= a.description %></p>
-        <p> When: <%= a.date.strftime('%B %e, %Y') %></p>
-      <% end  %>
+
+    <%# INFO RESERVAS USUARIO %>
+    <% if !@user.handyman %>
+      <div class="col-md">
+        <h1>My Appointments</h1>
+        <% @user.appointments.each do |a| %>
+          <p>Handyman: <%= a.handyman.user.full_name %></p>
+          <p>Description: <%= a.description %></p>
+          <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
+          <p>Status: <%= a.status %></p>
+        <% end  %>
+      </div>
+    <% end %>
+
+    <%# INFO HANDYMAN REQUEST %>
+    <% if @user.handyman %>
+      <div class="col-md">
+        <h1>My Requests</h1>
+        <% @user.handyman.appointments.each do |a| %>
+          <p>Client: <%= a.user.full_name %></p>
+          <p>Description: <%= a.description %></p>
+          <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
+          <p>Status: <%= a.status %></p>
+          <% if a.status == "Pending" %>
+            <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+            <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+          <% elsif a.status == "Accepted" %>
+            <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+          <% else %>
+            <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+          <% end %>
+        <% end  %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center text-center">
+    <div class="col">
+      <%= link_to 'Home', handymen_path, class: "btn btn-secondary"%>
     </div>
   </div>
 </div>
