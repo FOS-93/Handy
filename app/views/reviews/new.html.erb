@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <%= simple_form_for [@appointment, @review] do |f|  %>
+        <%= f.input :stars %>
+        <%= f.input :content %>
+        <%= f.submit %>
+      <% end %>
+      <%= link_to 'Back', my_profile_path %>
+    </div>
+  </div>
+</div>
