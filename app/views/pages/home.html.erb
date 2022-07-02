@@ -2,20 +2,27 @@
 <div class="landing-top">
 
   <%# BANNER %>
-  <div class="banner">
-    <div class="container">
-      <div class="banner-headders">
-        <h1>Handy!</h1>
-        <h2>Solutions at hand</h2>
-      </div>
-      <div class="sign-in-btn">
-        <%= link_to "Sign in", new_user_session_path %>
+  <div class="d-flex justify-content-between" style="background: #305349;">
+    <div class="banner">
+      <div class="container">
+        <div class="banner-headders" style="margin: 6rem;">
+          <h1>Handy!</h1>
+          <h2>Solutions at hand</h2>
+          <%= link_to "Sign in", new_user_session_path %>
+        </div>
       </div>
     </div>
   </div>
 
-  <%# LOGO %>
-  <div class="logo"></div>
+    <%# LOGO %>
+    <div>
+        <div class="logo">
+         <%= image_tag "circulo.png" %>
+        </div>
+        <div class="logo">
+          <%= image_tag "sammy.png" %>
+        </div>
+    </div>
 
   <%# SEARCH SPACE %>
   <div class="container">
@@ -32,6 +39,11 @@
       <% end %>
     </div>
   </div>
+
+<br>
+<br>
+<br>
+
 
   <%# CARDS SPACE %>
   <div class="container">
