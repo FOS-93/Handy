@@ -1,0 +1,11 @@
+<div class="profile-card">
+  <h1><%= @user.full_name %></h1>
+  <p>Email: <%= @user.email %></p>
+  <p>Reviews: <%= @reviews_user.count %></p>
+
+  <p>Member since: <%= @user.created_at.strftime('%B %e, %Y') %></p>
+  <%= link_to "Edit my profile", edit_user_registration_path %>
+  <% unless @user.is_handyman? %>
+    <%= link_to "Create your Handy profile", new_handyman_path(@user) %>
+  <% end %>
+</div>
