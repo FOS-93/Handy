@@ -12,7 +12,11 @@
         <div class="banner-headders" style="margin: 6rem;">
           <h1>Handy!</h1>
           <h2>Solutions at hand</h2>
-          <%= link_to "Sign in", new_user_session_path %>
+          <% if user_signed_in? %>
+            <%= link_to "", new_user_session_path %>
+          <% else %>
+             <%= link_to "Sign in", new_user_session_path %>
+          <% end %>
         </div>
         <div class="logo">
           <%= image_tag "sammy.png" %>
