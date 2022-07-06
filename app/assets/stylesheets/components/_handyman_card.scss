@@ -9,6 +9,7 @@
 
 .card-img {
   text-align: center;
+  background-color: #FFE073;
 
   img {
     height: 120px;
@@ -46,6 +47,10 @@
   grid-gap: 16px;
 }
 
+.btn-info {
+  background-color: #FFE073 !important;
+  border-color: #FFE073 !important;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
