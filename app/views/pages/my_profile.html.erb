@@ -10,7 +10,9 @@
       <%# INFO HANDYMAN %>
       <% if @user.is_handyman? %>
         <h1>Handyman Profile</h1>
-        <p>Reviews: <%= @reviews_handyman.count %></p>
+
+        <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * @user.handyman.avr_rating %>
+        <p>Reviews: <%= @user.handyman.rating_count %></p>
 
         <p>Location: <%= @user.handyman.location %></p>
         <p>About me: <%= @user.handyman.description %></p>

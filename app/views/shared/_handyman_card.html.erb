@@ -1,13 +1,26 @@
 <div class="handyman-card">
+  <%# FOTO %>
   <div class="card-img">
     <%= cl_image_tag(handyman.user.photo.key) %>
-    <div>
-      <%='<i class="fas fa-solid fa-star"></i>'.html_safe * 5%>
-      <p>Reviews:<%= handyman.reviews.filter {|r| r.author != current_user.email}.count %></p>
 
+    <% if handyman.reviews.empty? %>
+    <div>
+      <p>No reviews yet</p>
       <h4> <%= handyman.user.full_name %></h4>
     </div>
+    <% else %>
+      <div>
+
+
+        <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * handyman.avr_rating %>
+
+        <p>Reviews:<%= handyman.rating_count %></p>
+        <h4> <%= handyman.user.full_name %></h4>
+      </div>
+    <% end %>
   </div>
+
+  <%# INFO %>
   <div class="card-info">
     <div class="skills-location">
       <div class="skills">
