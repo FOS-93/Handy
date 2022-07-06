@@ -15,4 +15,22 @@ class Handyman < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def avr_rating
+    # creo la variable de suma
+    sum = 0
+    # cuento los reviews
+    count = self.reviews.filter { |r| r.author != self.user.email }.count
+    # suma de las estrellas de cada review
+    self.reviews.filter { |r| r.author != self.user.email }.each do |r|
+      sum += r.stars
+    end
+
+    # calculo el promedio
+    sum / count
+  end
+
+  def rating_count
+    self.reviews.filter { |r| r.author != self.user.email }.count
+  end
 end
