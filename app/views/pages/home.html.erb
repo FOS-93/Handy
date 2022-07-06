@@ -25,18 +25,48 @@
     </div>
   </div>
 </div>
+<br>
+<!-- CARD DESCRIPCION-->
+<div>
+  <div class="container">
+    <ul class="d-flex">
+      <li class="m-3" style="list-style: none;">
+        <div>
+          <i class="fas fa-piggy-bank d-flex justify-content-start fa-3x" style="color: #305349;"></i>
+          <p>Affordable</p>
+        </div>
+      </li>
+      <li class="m-3" style="list-style: none;">
+        <div>
+          <i class="fas fa-couch d-flex justify-content-start fa-3x" style="color: #305349;"></i>
+          <p>Accessible</p>
+        </div>
+      </li>
+      <li class="m-3" style="list-style: none;">
+        <div>
+          <i class="fas fa-shipping-fast d-flex justify-content-start fa-3x" style="color: #305349;"></i>
+          <p>Fast</p>
+        </div>
+      </li>
+       <li class="m-3" style="list-style: none;">
+        <div>
+          <i class="fas fa-handshake d-flex justify-content-start fa-3x" style="color: #305349;"></i>
+          <p>Reliable</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <div>
   <%# SEARCH SPACE %>
   <div class="container">
-    <div class="search-box">
-      <h3>Look for your Handyman</h3>
-
+    <div>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
         <div class="form-group">
-          <input class="grow" type="text" name="search[query]" />
-          <button type="submit" class="btn btn-success d-flex">
-            <i class="fas fa-search"></i> Search
+          <input class="grow text-center" type="text" name="search[query]" style="width: 588px; height: 40px; border-radius: 23px;" placeholder="Find a Handy!"/>
+          <button type="submit" class="btn btn-success d-flex" style="margin-left: 1rem; border-radius: 23px; background-color: #FFE073; border: #FFE073;">
+            <i class="fas fa-search fa-2x" style="color: #305349;"></i>
           </button>
         </div>
       <% end %>
@@ -46,8 +76,7 @@
 <br>
 <br>
 <br>
-<br>
-<br>
+
 <div>
   <%# CARDS SPACE %>
   <div class="container">
@@ -57,5 +86,4 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Find a Handy", handymen_path %>
 </div>
