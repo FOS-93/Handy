@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if params[:search].present?
       @handyman = Handyman.global_search(params[:search][:query])
     else
-      @handyman = Handyman.all.sample(6)
+      @handyman = Handyman.all.sample(3)
     end
   end
 
