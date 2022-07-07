@@ -2,31 +2,13 @@
   <div class="row justify-content-center text-center">
     <%# INFO USUARIO %>
     <div class="col-md">
-
       <h1>User Profile</h1>
-
       <%= render 'profile_card', user: @user %>
 
       <%# INFO HANDYMAN %>
       <% if @user.is_handyman? %>
         <h1>Handyman Profile</h1>
-
-        <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * @user.handyman.avr_rating %>
-        <p>Reviews: <%= @user.handyman.rating_count %></p>
-
-        <p>Location: <%= @user.handyman.location %></p>
-        <p>About me: <%= @user.handyman.description %></p>
-         <%= link_to 'Edit Handyman', edit_handyman_path(@user.handyman), class:"btn btn-info"%>
-         <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
-         <%= link_to 'Delete Handyman', @user.handyman, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info"%>
-
-        <% @user.handyman.skills.each do |skill| %>
-          <p><%= skill.name %> - <%= skill.level %></p>
-          <p><%= skill.description %></p>
-
-          <%= link_to 'Edit Skill', edit_skill_path(skill), class:"btn btn-info"%>
-          <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
-        <% end %>
+        <%= render 'handyman_card', user: @user %>
       <% end %>
     </div>
 
@@ -35,13 +17,7 @@
       <div class="col-md">
         <h1>My Appointments</h1>
         <% @user.appointments.each do |a| %>
-          <p>Handyman: <%= a.handyman.user.full_name %></p>
-          <p>Description: <%= a.description %></p>
-          <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-          <p>Status: <%= a.status %></p>
-          <% if !a.reviewed? %>
-            <%= link_to 'Leave a review', new_appointment_review_path(a), class:"btn btn-info"%>
-          <% end %>
+          <%= render 'appointment_card', a: a %>
         <% end  %>
       </div>
     <% end %>
@@ -51,25 +27,16 @@
       <div class="col-md">
         <h1>My Requests</h1>
         <% @user.handyman.appointments.each do |a| %>
-          <p>Client: <%= a.user.full_name %></p>
-          <p>Description: <%= a.description %></p>
-          <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-          <p>Status: <%= a.status %></p>
-          <% if a.status == "Pending" %>
-            <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-            <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-          <% elsif a.status == "Accepted" %>
-            <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-          <% else %>
-            <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-          <% end %>
+          <%= render 'request_card', a: a %>
         <% end  %>
       </div>
     <% end %>
   </div>
   <div class="row justify-content-center text-center">
     <div class="col">
-      <%= link_to 'Home', handymen_path, class: "btn btn-secondary"%>
+      <%= link_to handymen_path, class: "btn btn-secondary" do %>
+        <i class="fas fa-home"></i>
+      <% end %>
     </div>
   </div>
 </div>

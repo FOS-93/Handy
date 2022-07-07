@@ -10,10 +10,7 @@
     </div>
     <% else %>
       <div>
-
-
         <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * handyman.avr_rating %>
-
         <p>Reviews:<%= handyman.rating_count %></p>
         <h4> <%= handyman.user.full_name %></h4>
       </div>
