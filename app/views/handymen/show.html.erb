@@ -1,21 +1,19 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-6 m-5 text-center">
-      <h1>Handyman</h1>
-      <%= cl_image_tag(@handyman.user.photo.key) %>
-      <h4> <%= @handyman.user.full_name %></h4>
-      <% @handyman.skills.each do |skill| %>
-        <div class="skill">
-          <p><%= skill.name %></p>
-          <p><%= skill.level %></p>
-        </div>
+    <div class="col" style="width: 25%; height: 600px; margin-right: 31px; top: 20px; border-radius: 23px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @marker.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
+    </div>
+    <%= render 'handyman_card', handyman: @handyman %>
+    <%= link_to 'Back', handymen_path, class:"btn btn-info"%>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-9">
+      <h1>Reviews</h1>
+      <% @reviews_handyman.each do |r| %>
+        <%= render 'review_card', r: r %>
       <% end %>
-      <div class="member-since">
-        <p><%= @handyman.created_at %></p>
-        <%= link_to "Book", new_handyman_appointment_path(@handyman), class:"btn btn-info" %>
-      </div>
-      <br>
-      <%= link_to 'Back', handymen_path, class:"btn btn-info"%>
     </div>
   </div>
 </div>
