@@ -20,14 +20,18 @@ class Handyman < ApplicationRecord
     # creo la variable de suma
     sum = 0
     # cuento los reviews
-    count = self.reviews.filter { |r| r.author != self.user.email }.count
+    count = self.rating_count
     # suma de las estrellas de cada review
     self.reviews.filter { |r| r.author != self.user.email }.each do |r|
       sum += r.stars
     end
 
     # calculo el promedio
-    sum / count
+    if count.zero?
+      0
+    else
+      sum / count
+    end
   end
 
   def rating_count

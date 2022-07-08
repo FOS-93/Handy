@@ -1,6 +1,10 @@
 <div class="profile-card">
   <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * @user.handyman.avr_rating %>
-  <p>Reviews: <%= @user.handyman.rating_count %></p>
+  <% if @user.handyman.rating_count.zero? %>
+    <p> No reviews yet</p>
+  <% else %>
+    <p>Reviews: <%= @user.handyman.rating_count %></p>
+  <% end %>
   <i class="fas fa-location-arrow"></i>
   <p><%= @user.handyman.location %></p>
   <i class="fas fa-address-card"></i>
