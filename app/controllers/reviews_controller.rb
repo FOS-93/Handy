@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to my_profile_path
     else
-      render new
+      render :new
     end
   end
 
