@@ -12,6 +12,11 @@ class HandymenController < ApplicationController
         image_url: helpers.asset_url("wrench.png")
       }
     end
+    if params[:search].present?
+      @handyman = Handyman.global_search(params[:search][:query])
+    else
+      @handyman = Handyman.all.sample(3)
+    end
   end
 
   def new
