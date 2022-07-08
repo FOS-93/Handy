@@ -29,6 +29,11 @@ class HandymenController < ApplicationController
     @reviews_handyman = @handyman.reviews.filter do |r|
       r.author != current_user.email
     end
+    @marker = [{
+      lat: @handyman.latitude,
+      lng: @handyman.longitude,
+      image_url: helpers.asset_url("wrench.png")
+    }]
   end
 
   def create
