@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :handymen do
     resources :skills, only: %i[new create]
     resources :appointments, only: %i[new create]
+    resources :chatrooms, only: %i[create]
   end
 
   resources :appointments, only: %i[show] do
@@ -15,6 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :skills, only: %i[edit update destroy]
+
+  resources :chatrooms, only: %i[show index] do
+    resources :messages, only: :create
+    # cuando cree mensajes, quiero que esten asociados a algun chatroom
+  end
 
   get "/my_profile", to: "pages#my_profile", as: :my_profile
 end
