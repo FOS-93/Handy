@@ -1,6 +1,8 @@
 require "open-uri"
 puts "Borrando datos anteriores"
 
+Message.delete_all
+Chatroom.delete_all
 Skill.delete_all
 Review.delete_all
 Appointment.delete_all
