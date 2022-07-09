@@ -25,6 +25,10 @@
         data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
+        <% unless (@chatroom.handyman.user.id == current_user.id) %>
+          <%= link_to "Book", new_handyman_appointment_path(@chatroom.handyman), class:"btn btn-info m-2" %>
+        <% end %>
+
         <span>#H-- <%= @chatroom.handyman.user.full_name %></span>
         <span>#C-- <%= @chatroom.user.full_name %></span>
 
