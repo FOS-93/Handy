@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>My Chats</h1>
+  <%# LISTA DE CHATS %>
+  <div class="row">
+    <div class="chats col-4">
+      <% @chatrooms.each do |chat| %>
+        <%= render 'chat_card', chat: chat %>
+      <% end %>
+    </div>
+
+    <%# CONVERSACIÓN %>
+    <div class="col-8">
+      <div class="chatroom">
+
+        <h1>Select conversation</h1>
+
+        <%# espacio para mensajes %>
+        <div class="messages">
+          <p></p>
+        </div>
+
+        <%# Form para mandar mensajes %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,26 +1,41 @@
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
->
+<div class="container">
+  <h1>My Chats</h1>
+  <div class="row">
+    <%# LISTA DE CHATS %>
+    <div class="chats col-4">
+      <% @chatrooms.each do |chat| %>
+        <%= render 'chat_card', chat: chat %>
+      <% end %>
+    </div>
+    
+    <%# CONVERSACIÓN %>
+    <div class="col-8">
+      <div class="container chatroom"
+        data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-  <h1>#<%= @chatroom.name %></h1>
+        <h1>#<%= @chatroom.name %></h1>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+        <%# espacio para mensajes %>
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+
+        <%# Form para mandar mensajes %>
+        <%= simple_form_for [@chatroom, @message], #formulario nesteado
+          remote: true, #enviar formulario por AJAX
+          html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
+        %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Message ##{@chatroom.name}",
+            wrapper_html: {class: "flex-grow-1"} # agrega una clase
+          %>
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <%# Form para mandar mensajes %>
-  <%= simple_form_for [@chatroom, @message], #formulario nesteado
-    remote: true, #enviar formulario por AJAX
-    html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"} # agrega una clase
-    %>
-    <%= f.submit "Send", class: "btn btn-primary" %>
-  <% end %>
 </div>
