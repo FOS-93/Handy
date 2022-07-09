@@ -106,13 +106,13 @@ jmunoz_ap = Appointment.create!(
   handyman: jmunoz_h
 )
 
-Review.create!(
-  stars: rand(4..5),
-  content: "Its a good #{jmunoz_skill.name}, a professional one",
-  user: fabrizio,
-  appointment: jmunoz_ap,
-  handyman: jmunoz_h
-)
+# Review.create!(
+#   stars: rand(4..5),
+#   content: "Its a good #{jmunoz_skill.name}, a professional one",
+#   user: fabrizio,
+#   appointment: jmunoz_ap,
+#   handyman: jmunoz_h
+# )
 
 # 2_________________________
 faraya = User.create!(

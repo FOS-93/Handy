@@ -1,7 +1,13 @@
 
 <div class="card" style="width: 18rem;">
   <%= cl_image_tag(handyman.user.photo.key, :width=>200, :height=>300, :gravity=>"faces", :crop=>"thumb", class:"card-img-top") %>
-  <p><%= '<i class="fas fa-solid fa-star"></i>'.html_safe * handyman.avr_rating %> (<%= handyman.rating_count %>) </p>
+    <% if handyman.reviews.empty? %>
+      <div>
+        <p>No reviews yet</p>
+      </div>
+    <% else %>
+      <p><%= '<i class="fas fa-solid fa-star"></i>'.html_safe * handyman.avr_rating %> (<%= handyman.rating_count %>) </p>
+    <% end %>
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <h5 class="card-title"><%= handyman.user.full_name %></h5>
