@@ -1,10 +1,21 @@
 <div class="container">
   <h1>My Chats</h1>
-  <%# LISTA DE CHATS %>
   <div class="row">
+    <%# LISTA DE CHATS %>
     <div class="chats col-4">
-      <% @chatrooms.each do |chat| %>
-        <%= render 'chat_card', chat: chat %>
+      <% if current_user.handyman %>
+        <%# muestro los 2 chats %>
+        <% @chatrooms_user.each do |chat| %>
+          <%= render 'chat_card_user', chat: chat %>
+        <% end %>
+        <% @chatrooms_handyman.each do |chat| %>
+          <%= render 'chat_card_handy', chat: chat %>
+        <% end %>
+      <% else %>
+        <%# muestro chats de usuario %>
+        <% @chatrooms_user.each do |chat| %>
+          <%= render 'chat_card_user', chat: chat %>
+        <% end %>
       <% end %>
     </div>
 
