@@ -1,6 +1,10 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.where(user_id: current_user.id)
+    # @chatrooms = Chatroom.where(user_id: current_user.id, handyman_id: current_user.handyman.id)
+    @chatrooms_user = Chatroom.where(user_id: current_user.id)
+    if current_user.handyman
+      @chatrooms_handyman = Chatroom.where(handyman_id: current_user.handyman.id)
+    end
   end
 
   def create

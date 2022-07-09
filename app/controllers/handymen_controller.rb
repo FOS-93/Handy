@@ -2,6 +2,12 @@ class HandymenController < ApplicationController
 
   def index
     # the `geocoded` scope filters only handymans with coordinates (latitude & longitude)
+    if params[:search].present?
+      @handyman = Handyman.global_search(params[:search][:query])
+    else
+      # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
+      @handyman = Handyman.where.not(id: current_user.id)
+    end
     @markers = @handyman.geocoded.map do |handyman|
       {
         lat: handyman.latitude,
@@ -9,12 +15,6 @@ class HandymenController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { handyman: handyman }),
         image_url: helpers.asset_url("wrench.png")
       }
-    end
-    if params[:search].present?
-      @handyman = Handyman.global_search(params[:search][:query])
-    else
-      # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
-      @handyman = Handyman.where.not(id: current_user.id)
     end
   end
 
