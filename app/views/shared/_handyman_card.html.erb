@@ -32,9 +32,6 @@
         <p> <%= handyman.location %></p>
       </div>
     </div>
-    <div class="division">
-      <p></p>
-    </div>
     <div class="member-since">
       <p><%= handyman.created_at %></p>
       <%= link_to "Book", new_handyman_appointment_path(handyman.id), class:"btn btn-info" %>
