@@ -18,5 +18,9 @@
     </div>
   <% end %>
   <%= link_to "Book", new_handyman_appointment_path(@handyman), class:"btn btn-info" %>
-  <%= link_to "Arrange details", handyman_chatrooms_path(@handyman), method:"post", class:"btn btn-info" %>
+  <% if @handyman.chatrooms.where(user_id: current_user.id).present? %>
+    <%= link_to "Arrange details", chatroom_path(@handyman.chatrooms.where(user_id: current_user.id).first), class:"btn btn-info" %>
+  <% else %>
+    <%= link_to "Arrange details", handyman_chatrooms_path(@handyman), method:"post", class:"btn btn-info" %>
+  <% end %>
 </div>
