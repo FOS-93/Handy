@@ -1,3 +1,58 @@
+.body {
+  background: #ddd;
+}
+
+.profile-area {
+  padding: 0 0;
+}
+
+.card{
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 15px;
+  width: 350px;
+  height: 430px;
+}
+
+.img{
+  position: relative;
+  display: block;
+  margin: 20px auto 20px;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 7px solid #fff
+}
+
+.review {
+  text-align: center;
+}
+
+.badge {
+  border-radius: 15px;
+}
+
+.btn {
+  border-radius: 15px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.card-info {
+  margin-left: 15px;
+}
+
+.level{
+  margin-top: 5px;
+}
+
+.container {
+  margin-bottom: 40px;
+}
+
 .handyman-card {
   width: 330px;
   border: 1px rgba(0, 0, 0, 0.5);
@@ -13,14 +68,6 @@
   img {
     height: 120px;
   }
-}
-
-.card-info {
-  // display: flex;
-  background-color: #305349;
-  color: #FFE073;
-  padding: 10px;
-  border-radius: 5px;
 }
 
 .skills {
