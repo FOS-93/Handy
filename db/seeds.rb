@@ -21,8 +21,9 @@ fabrizio = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795550/development/download_p7cokk.jpg")
-fabrizio.photo.attach(io: file, filename: "Urokodaki.jpg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668271/development/photo-1547425260-76bcadfb4f2c_mg41oj.avif")
+
+fabrizio.photo.attach(io: file, filename: "Fabrizio.jpg", content_type: "image/jpeg")
 
 puts fabrizio.first_name
 
@@ -36,8 +37,8 @@ juliana = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795633/development/download_njj37x.jpg")
-juliana.photo.attach(io: file, filename: "Fuhrer.jpg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668332/development/photo-1580489944761-15a19d654956_ytb2p9.avif")
+juliana.photo.attach(io: file, filename: "Juli.jpg", content_type: "image/jpeg")
 
 puts juliana.first_name
 
@@ -51,8 +52,8 @@ alan = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795715/development/download_obhgn9.jpg")
-alan.photo.attach(io: file, filename: "HSpecter.jpg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668281/development/photo-1552058544-f2b08422138a_ljrx0k.avif")
+alan.photo.attach(io: file, filename: "Avp.jpg", content_type: "image/jpeg")
 
 puts alan.first_name
 
@@ -66,8 +67,8 @@ sergio = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795807/development/AQL7EUBHGRAJJGBWOBMECISNMY_ciajxp.jpg")
-sergio.photo.attach(io: file, filename: "DrHouse.jpg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668304/development/photo-1500048993953-d23a436266cf_ywmp9e.avif")
+sergio.photo.attach(io: file, filename: "Sergio.jpg", content_type: "image/jpeg")
 
 puts sergio.first_name
 
@@ -80,7 +81,7 @@ jmunoz = User.create!(
   age: rand(18..50),
   password: '123456'
 )
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656792031/development/jmu%C3%B1oz.jpg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668325/development/photo-1599566150163-29194dcaad36_abksek.avif")
 jmunoz.photo.attach(io: file, filename: "jmuñoz.jpg", content_type: "image/jpeg")
 
 puts jmunoz.first_name
@@ -123,7 +124,7 @@ faraya = User.create!(
   age: rand(18..50),
   password: '123456'
 )
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656461874/development/felipe.jpg.png")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668262/development/photo-1570612861542-284f4c12e75f_vyxnns.avif")
 faraya.photo.attach(io: file, filename: "felipe.jpg", content_type: "image/jpeg")
 
 puts faraya.first_name
@@ -167,7 +168,7 @@ cvillalobos = User.create!(
   age: rand(18..50),
   password: '123456'
 )
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656792001/development/camila.jpg.jpg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668299/development/photo-1499952127939-9bbf5af6c51c_wr1d2i.avif")
 cvillalobos.photo.attach(io: file, filename: "camila.jpg", content_type: "image/jpeg")
 
 puts cvillalobos.first_name
@@ -209,7 +210,7 @@ fperretta = User.create!(
   age: rand(18..50),
   password: '123456'
 )
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656792416/development/fernanda.jpg.webp")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668294/development/photo-1491349174775-aaafddd81942_hbkpan.avif")
 fperretta.photo.attach(io: file, filename: "fernanda.jpg", content_type: "image/jpeg")
 
 puts fperretta.first_name
@@ -253,7 +254,7 @@ fpino = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795211/development/felipe2.jpg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657668993/development/photo-1629425733761-caae3b5f2e50_cghiyw.avif")
 fpino.photo.attach(io: file, filename: "felipe2.jpg", content_type: "image/jpeg")
 
 puts fpino.first_name
@@ -289,47 +290,47 @@ Review.create!(
 )
 
 # 6_________________________
-lmessi = User.create!(
-  email: 'lmessi@gmail.com',
-  first_name: 'Leonel',
-  last_name: 'Messi',
+lmessa = User.create!(
+  email: 'lmessa@gmail.com',
+  first_name: 'Leonardo',
+  last_name: 'Messa',
   gender: 'Male',
   age: rand(18..50),
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656792173/development/lmessi.jpg")
-lmessi.photo.attach(io: file, filename: "lmessi.jpg", content_type: "image/jpeg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657669224/development/photo-1621905252507-b35492cc74b4_unour1.avif")
+lmessa.photo.attach(io: file, filename: "lmessi.jpg", content_type: "image/jpeg")
 
-puts lmessi.first_name
+puts lmessa.first_name
 
-lmessi_h = Handyman.create!(
+lmessa_h = Handyman.create!(
   description: 'para algunos será una sorpresa encontrarme acá, pero la verdad es que siempre he tenido estos talentos ocultos',
   location: 'Maipu, Santiago, Chile',
-  user: lmessi
+  user: lmessa
 )
 
-lmessi_skill = Skill.create!(
+lmessa_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
   description: "#{rand(1..6)} años de experiencia",
-  handyman: lmessi_h
+  handyman: lmessa_h
 )
-lmessi_ap = Appointment.create!(
+lmessa_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{lmessi_skill.name} to fix some minor issues at home",
+  description: "I need a #{lmessa_skill.name} to fix some minor issues at home",
   status: "Accepted",
-  skill: lmessi_skill.name,
+  skill: lmessa_skill.name,
   user: juliana,
-  handyman: lmessi_h
+  handyman: lmessa_h
 )
 
 Review.create!(
   stars: rand(4..5),
-  content: "Its a good #{lmessi_skill.name}, a professional one",
+  content: "Its a good #{lmessa_skill.name}, a professional one",
   user: juliana,
-  appointment: lmessi_ap,
-  handyman: lmessi_h
+  appointment: lmessa_ap,
+  handyman: lmessa_h
 )
 # 7_________________________
 asanchez = User.create!(
@@ -341,7 +342,7 @@ asanchez = User.create!(
   password: '123456'
 )
 
-file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1656795449/development/22-Alexis_azzjdo.jpg")
+file = URI.open("https://res.cloudinary.com/alan-v-p/image/upload/v1657669387/development/photo-1570295999919-56ceb5ecca61_o9czzh.avif")
 asanchez.photo.attach(io: file, filename: "Alexis.jpg", content_type: "image/jpeg")
 
 puts asanchez.first_name
