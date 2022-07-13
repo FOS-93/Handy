@@ -1,0 +1,18 @@
+.how-it-works{
+  display: flex;
+  margin-top: 40px;
+  margin-left: 60px;
+  margin-right: 60px;
+  align-items: center;
+  justify-content: space-between;
+
+  img{
+    width: 250px;
+    height: auto;
+  }
+
+  h4{
+    margin-top: 25px;
+    font-size: 18px;
+  }
+}
