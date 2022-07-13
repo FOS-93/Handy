@@ -1,11 +1,13 @@
 .profile-card {
-  background-color: aliceblue;
-  box-shadow: 3px 3px 10px grey;
-  border-radius: 5px;
-  padding: 8px;
-  margin-bottom: 30px;
+  // box-shadow: 3px 3px 10px grey;
+  // border-radius: 5px;
+  // padding: 8px;
+  // margin-bottom: 30px;
 
   img {
     height: 200px;
+    box-shadow: 3px 3px 10px grey;
+    margin: 18px;
+    border-radius: 30px;
   }
 }
