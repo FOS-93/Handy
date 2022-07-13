@@ -38,4 +38,8 @@ class Handyman < ApplicationRecord
   def rating_count
     self.reviews.filter { |r| r.author != self.user.email }.count
   end
+
+  def has_chat?
+    self.chatrooms.where(user_id: current_user.id).present?
+  end
 end
