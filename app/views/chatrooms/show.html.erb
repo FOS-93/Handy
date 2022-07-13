@@ -42,8 +42,7 @@
         <%# Form para mandar mensajes %>
         <%= simple_form_for [@chatroom, @message], #formulario nesteado
           remote: true, #enviar formulario por AJAX
-          html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
-        %>
+          html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
           <%= f.input :content,
             label: false,
             placeholder: "Message ##{@chatroom.name}",
