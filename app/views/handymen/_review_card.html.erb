@@ -1,9 +1,0 @@
-<div class = "review-card">
-  <p><%= r.user.full_name %></p>
-  <div class="divider"> <p></p></div>
-  <p><%= r.created_at.strftime('%B %e, %Y') %></p>
-  <div class="divider"> <p></p></div>
-  <p><%= '<i class="fas fa-solid fa-star"></i>'.html_safe * r.stars %></p>
-  <div class="divider"> <p></p></div>
-  <p><%= r.content %></p>
-</div>
