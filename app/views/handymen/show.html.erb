@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex justify-content-center mt-2" style="background: red;">
+  <div class="d-flex justify-content-center mt-2" style="background: white; border-radius: 20px;">
     <div style="margin: 78px 0px 0px 0px;">
       <%= cl_image_tag(@handyman.user.photo.key) %>
     </div>
@@ -15,6 +15,9 @@
         <h5><%= skill.name %> <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * @handyman.avr_rating %></h5>
         <p><%= skill.description %></p>
         <% end %>
+         <% if @handyman.rating_count.zero? %>
+         <p></p>
+         <%else%>
          <div class="linea"></div>
          <h4>Reviews</h4>
           <% @reviews_handyman.each do |r| %>
@@ -36,17 +39,19 @@
             <p><%= r.content %></p>
           </div>
           <% end %>
+          <% end %>
 
       </div>
 
-      <div class="col-4">
-      HOLA
+      <div class="col-4 appointment">
+
+
       </div>
     </div>
     <div class="linea"></div>
     <!-- Map -->
     <div>
-    <div class="" style="width: 25%; height: 600px; margin-right: 31px; top: 20px; border-radius: 23px;"
+    <div class="" style="width: 100%; height: 400px; margin-right: 31px; top: 20px; border-radius: 23px;"
             data-controller="mapbox"
             data-mapbox-markers-value="<%= @marker.to_json %>"
             data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
@@ -55,7 +60,7 @@
   </div>
 
 </div>
-<div>
+  <div>
     <%= link_to 'Back', handymen_path, class:"btn btn-info"%>
   </div>
-<% render footer%>
+<%= render 'shared/footer' %>
