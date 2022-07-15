@@ -1,5 +1,7 @@
 <div class="profile-card">
-  <p>Handyman: <%= a.handyman.user.full_name %></p>
+  <%= link_to handyman_path(a.handyman) do %>
+    <p>Handyman: <%= a.handyman.user.full_name %></p>
+  <% end %>
   <p>Description: <%= a.description %></p>
   <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
   <p>Status: <%= a.status %></p>
