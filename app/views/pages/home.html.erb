@@ -1,16 +1,14 @@
-    <%# LOGO %>
-    <div>
-        <div class="logo">
-         <%= image_tag "circulo.png" %>
-        </div>
-    </div>
-  <%# BANNER %>
-<div>
-  <div class="d-flex justify-content-between position-relative" style="background: #305349; width: 100%; height: 366px;">
-    <div class="banner">
-      <div class="container">
-        <div class="m-5">
-          <h1 class="h1-title" style="margin-top: 200px">Handy!</h1>
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@300&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@400&display=swap');
+  </style>
+</head>
+  <div>
+    <div class="justify-content-between position-relative"  >
+      <div class="banner">
+        <div class="container">
+
+          <h1 class="h1-title" >Handy</h1>
           <div class="d-flex">
             <h2 style="margin-left: 20px;">Solutions at hand</h2>
             <div class="mt-2">
@@ -21,105 +19,59 @@
               <% end %>
             </div>
           </div>
-        </div>
-        <div class="logo">
-          <%= image_tag "sammy.png" %>
+
         </div>
       </div>
     </div>
   </div>
-</div>
-<br>
-<!-- CARD Description-->
-<div>
-  <div class="">
-    <ul class="d-flex justify-content-between" style="margin-left: 30px; width: 731px;">
-      <li class="m-3" style="list-style: none;">
-        <div>
-          <i class="fas fa-piggy-bank d-flex justify-content-start fa-3x" style="color: #305349;"></i>
-          <p>Affordable</p>
-        </div>
-      </li>
-      <li class="m-3" style="list-style: none;">
-        <div>
-          <i class="fas fa-couch d-flex justify-content-start fa-3x" style="color: #305349;"></i>
-          <p>Accessible</p>
-        </div>
-      </li>
-      <li class="m-3" style="list-style: none;">
-        <div>
-          <i class="fas fa-shipping-fast d-flex justify-content-start fa-3x" style="color: #305349;"></i>
-          <p>Fast</p>
-        </div>
-      </li>
-       <li class="m-3" style="list-style: none;">
-        <div>
-          <i class="fas fa-handshake d-flex justify-content-start fa-3x" style="color: #305349;"></i>
-          <p>Reliable</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+  <br>
 
-<div>
-  <%# SEARCH SPACE %>
+
+  <div>
+    <%# SEARCH SPACE %>
+    <div class="container">
+      <div>
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+          <div class="form-group">
+            <input class="grow text-center border-0 shadow" type="text" name="search[query]" style="width: 788px; height: 40px; border-radius: 23px; margin-top: 80px;" placeholder="Find a Handy!"/>
+            <button type="submit" class="btn btn-success d-flex" style="margin-left: 1rem; border-radius: 23px; background-color: #FFE073; border: #FFE073; margin-top: 80px;">
+              <i class="fas fa-search fa-2x" style="color: #305349;"></i>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <%# HOW IT WORKS %>
   <div class="container">
-    <div>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <div class="form-group">
-          <input class="grow text-center border-0 shadow-sm" type="text" name="search[query]" style="width: 588px; height: 40px; border-radius: 23px; " placeholder="Find a Handy!"/>
-          <button type="submit" class="btn btn-success d-flex" style="margin-left: 1rem; border-radius: 23px; background-color: #FFE073; border: #FFE073;">
-            <i class="fas fa-search fa-2x" style="color: #305349;"></i>
-          </button>
+      <div class="knowhow mt-5">
+        <h3> How <strong>it works</strong></h3>
+        <p> Find the most qualified person to help you at home</p>
+      </div>
+    <div class="how-it-works">
+      <div class="steps mt-6">
+        <div class="step">
+          <img src="https://cdn.dribbble.com/users/1231153/screenshots/3433207/media/c9b2d44c27615cdb11487e792f4f7c03.gif" alt="Pipe Burst">
+          <h4>Need a fix?</h4>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<br>
-
-<div>
-  <%# CARDS SPACE %>
-  <div class="container">
-    <div class="cards">
-      <% @handyman.each do |handyman|%>
-        <%= render 'shared/handyman_card', handyman: handyman %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div>
-<div class="container">
-    <div class="knowhow mt-5">
-      <h3> How <strong>it works</strong></h3>
-      <p> Find the most qualified person to help you at home</p>
-    </div>
-  <div class="how-it-works">
-    <div class="steps mt-6">
-      <div class="step">
-        <img src="https://cdn.dribbble.com/users/1231153/screenshots/3433207/media/c9b2d44c27615cdb11487e792f4f7c03.gif" alt="Pipe Burst">
-        <h4>Need a fix?</h4>
       </div>
-    </div>
-    <div class="steps mt-6">
-      <div class="step">
-        <img src="https://cdn.dribbble.com/users/12427466/screenshots/18761128/media/49deef9fb0a64fa9f136cf8aa76dbd1b.gif" alt="Find handy">
-        <h4>Search by location or skill</h4>
+      <div class="steps mt-6">
+        <div class="step">
+          <img src="https://cdn.dribbble.com/users/12427466/screenshots/18761128/media/49deef9fb0a64fa9f136cf8aa76dbd1b.gif" alt="Find handy">
+          <h4>Search by location or skill</h4>
+        </div>
       </div>
-    </div>
-    <div class="steps mt-6">
-      <div class="step">
-        <img src="https://cdn.dribbble.com/users/537878/screenshots/3517803/media/aab41504d52402e113194ee599fc71da.gif" alt="Found">
-        <h4>Find the right Handy</h4>
+      <div class="steps mt-6">
+        <div class="step">
+          <img src="https://cdn.dribbble.com/users/537878/screenshots/3517803/media/aab41504d52402e113194ee599fc71da.gif" alt="Found">
+          <h4>Find the right Handy</h4>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
 <%# FOOTER %>
   <%= render 'shared/footer' %>
