@@ -1,5 +1,6 @@
 <%= link_to chatroom_path(chat) do %>
   <div class="chat-card">
-    <span>(H) <%= chat.handyman.user.full_name %></span>
+    <%= cl_image_tag(chat.handyman.user.photo.key) %>
+    <span><strong>(H)</strong> <%= chat.handyman.user.full_name %></span>
   </div>
 <% end %>
