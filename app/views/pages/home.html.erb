@@ -8,6 +8,16 @@
   <div>
     <div class="landing_top"  >
       <div class="banner">
+        <div>
+          <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+            <div class="form-group">
+              <input class="grow text-center border-0 shadow " type="text" name="search[query]" style="width: 788px; height: 40px; border-radius: 23px; margin-top: 20px; margin-left: 800px; background: rgb(206 220 207 / 18%)" placeholder="Find a Handy!"/>
+              <button type="submit" class="btn-submit" style="margin-left: 1rem; border-radius: 23px; background-color: #F4E1A6; border: #FFE073; margin-top: 20px;">
+                <i class="fas fa-search fa-2x" style="color: #305349;"></i>
+              </button>
+            </div>
+          <% end %>
+        </div>
         <div class="container">
           <h1 class="h1-title" >Handy</h1>
             <h2 style="margin-left: 20px;">Solutions at hand</h2>
@@ -30,16 +40,6 @@
   <div>
     <%# SEARCH SPACE %>
     <div class="container">
-      <div>
-        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-          <div class="form-group">
-            <input class="grow text-center border-0 shadow" type="text" name="search[query]" style="width: 788px; height: 40px; border-radius: 23px; margin-top: 80px;" placeholder="Find a Handy!"/>
-            <button type="submit" class="btn btn-success d-flex" style="margin-left: 1rem; border-radius: 23px; background-color: #F4E1A6; border: #FFE073; margin-top: 80px;">
-              <i class="fas fa-search fa-2x" style="color: #305349;"></i>
-            </button>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
   <br>
