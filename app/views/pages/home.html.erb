@@ -6,18 +6,16 @@
   </style>
 </head>
   <div>
-    <div class="justify-content-between position-relative"  >
+    <div class="landing_top"  >
       <div class="banner">
         <div class="container">
-
           <h1 class="h1-title" >Handy</h1>
-          <div class="d-flex">
             <h2 style="margin-left: 20px;">Solutions at hand</h2>
-            <div class="mt-2">
+            <div class="mt-5 me-3">
               <% if user_signed_in? %>
                 <%= link_to "", new_user_session_path %>
               <% else %>
-                <%= link_to "Sign in", new_user_session_path, class: "btn-sign-in", style: "margin-left: 163px;" %>
+                <%= link_to "Sign in", new_user_session_path, class: "btn-sign-in" %>
               <% end %>
             </div>
           </div>
