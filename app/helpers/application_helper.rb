@@ -23,7 +23,7 @@ module ApplicationHelper
   def badges_for_skills(skill)
     case skill
     when "Carpenter"
-      "badge p-2 bg-primary"
+      "badge p-2 bg-dark"
     when "Plumber"
       "badge p-2 bg-dark"
     when "Blacksmith"

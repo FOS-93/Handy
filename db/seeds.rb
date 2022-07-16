@@ -95,7 +95,7 @@ jmunoz_h = Handyman.create!(
 jmunoz_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: jmunoz_h
 )
 jmunoz_ap = Appointment.create!(
@@ -138,7 +138,7 @@ faraya_h = Handyman.create!(
 faraya_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: faraya_h
 )
 
@@ -182,7 +182,7 @@ cvillalobos_h = Handyman.create!(
 cvillalobos_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: cvillalobos_h
 )
 cvillalobos_ap = Appointment.create!(
@@ -224,7 +224,7 @@ fperretta_h = Handyman.create!(
 fperretta_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: fperretta_h
 )
 fperretta_ap = Appointment.create!(
@@ -268,7 +268,7 @@ fpino_h = Handyman.create!(
 fpino_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: fpino_h
 )
 
@@ -313,7 +313,7 @@ lmessa_h = Handyman.create!(
 lmessa_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: lmessa_h
 )
 lmessa_ap = Appointment.create!(
@@ -356,7 +356,7 @@ asanchez_h = Handyman.create!(
 asanchez_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
-  description: "#{rand(1..6)} años de experiencia",
+  description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: asanchez_h
 )
 
@@ -369,10 +369,43 @@ asanchez_ap = Appointment.create!(
   handyman: asanchez_h
 )
 
+asanchez_ap = Appointment.create!(
+  date: Date.today.strftime('%B %e, %Y'),
+  description: "I need a #{asanchez_skill.name} to fix some minor issues at home",
+  status: "Accepted",
+  skill: asanchez_skill.name,
+  user: juliana,
+  handyman: asanchez_h
+)
+
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{asanchez_skill.name}, a professional one",
   user: alan,
+  appointment: asanchez_ap,
+  handyman: asanchez_h
+)
+
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a good #{asanchez_skill.name}, a professional one",
+  user: juliana,
+  appointment: asanchez_ap,
+  handyman: asanchez_h
+)
+
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a good #{asanchez_skill.name}, a professional one",
+  user: fabrizio,
+  appointment: asanchez_ap,
+  handyman: asanchez_h
+)
+
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a good #{asanchez_skill.name}, a professional one",
+  user: sergio,
   appointment: asanchez_ap,
   handyman: asanchez_h
 )

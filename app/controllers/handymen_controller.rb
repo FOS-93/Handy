@@ -33,6 +33,7 @@ class HandymenController < ApplicationController
       lng: @handyman.longitude,
       image_url: helpers.asset_url("wrench.png")
     }]
+    @appointment = Appointment.new
   end
 
   def create
