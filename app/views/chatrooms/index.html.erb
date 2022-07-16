@@ -35,11 +35,13 @@
         </div>
       </div>
     <% else %>
-      <h1> <%= current_user.full_name %> it looks like you don't have any messages yet</h1>
-      <%= image_tag "https://cdn.dribbble.com/users/1418633/screenshots/6693173/empty-state.png" %>
-      <%= link_to  handymen_path do %>
-        <i class="fas fa-arrow-left"> <h3>return</h3> </i>
-      <% end %>
+      <div class="empty-mailbox" style= "margin-left: 170px; margin-top: 40px;">
+        <h3> <%= current_user.first_name %> it looks like you don't have any messages yet</h3>
+        <%= image_tag "empty_icon.png" %>
+        <%= link_to  handymen_path do %>
+          <i class="d-flex fas fa-arrow-left"> <h4>return</h4> </i>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
