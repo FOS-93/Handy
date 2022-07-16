@@ -1,12 +1,34 @@
-<head>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@300&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@400&display=swap');
   </style>
-</head>
 
-<div class="justify-content-between position-relative"  >
-  <div class="banner">
-    <div class="container">
+  <div>
+    <div class="landing_top mt-0"  >
+      <div class="banner">
+        <div class="sign in">
+              <% if user_signed_in? %>
+                <%= link_to "", new_user_session_path %>
+              <% else %>
+                <%= link_to "Sign in", new_user_session_path, class: "btn-sign-in mt-0" %>
+              <% end %>
+        </div>
+
+        <div class="container">
+          <h1 class="h1-title" >Handy</h1>
+            <h2 style="margin-left: 20px;">Solutions at hand</h2>
+          <div>
+            <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+              <div class="form-group mt-5">
+                <input class="grow text-center border-0 shadow " type="text" name="search[query]" style="width: 400px; height: 40px; border-radius: 23px; background: rgb(206 220 207 / 18%)" placeholder="Find a Handy!"/>
+                <button type="submit" class="btn-submit">
+                  <i class="fas fa-search fa-2x" style="color: #305349;"></i>
+                </button>
+              </div>
+            <% end %>
+          </div>
+
+          </div>
 
       <h1 class="h1-title" >Handy</h1>
       <div class="d-flex">
@@ -22,38 +44,21 @@
 
     </div>
   </div>
-</div>
 
 <br>
 
-
-<%# SEARCH SPACE %>
-<div class="container">
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="form-group">
-      <input class="grow text-center border-0 shadow" type="text" name="search[query]" style="width: 788px; height: 40px; border-radius: 23px; margin-top: 80px;" placeholder="Find a Handy!"/>
-      <button type="submit" class="btn btn-success d-flex" style="margin-left: 1rem; border-radius: 23px; background-color: #FFE073; border: #FFE073; margin-top: 80px;">
-        <i class="fas fa-search fa-2x" style="color: #305349;"></i>
-      </button>
-    </div>
-  <% end %>
-</div>
-
-<br>
-<br>
-<br>
-
-<%# HOW IT WORKS %>
-<div class="container">
-    <div class="knowhow mt-5">
-      <h3> How <strong>it works</strong></h3>
-      <p> Find the most qualified person to help you at home</p>
-    </div>
-  <div class="how-it-works">
-    <div class="steps mt-6">
-      <div class="step">
-        <img src="https://cdn.dribbble.com/users/1231153/screenshots/3433207/media/c9b2d44c27615cdb11487e792f4f7c03.gif" alt="Pipe Burst">
-        <h4>Need a fix?</h4>
+  <%# HOW IT WORKS %>
+  <div class="container">
+      <div class="knowhow mt-5">
+        <h3> How <strong>it works</strong></h3>
+        <p> Find the most qualified person to help you at home</p>
+      </div>
+    <div class="how-it-works">
+      <div class="steps mt-6">
+        <div class="step">
+          <img src="https://cdn.dribbble.com/users/1231153/screenshots/3433207/media/c9b2d44c27615cdb11487e792f4f7c03.gif" alt="Pipe Burst">
+          <h4>Need a fix?</h4>
+        </div>
       </div>
     </div>
     <div class="steps mt-6">

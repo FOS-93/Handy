@@ -1,10 +1,13 @@
+
 .banner {
   height: 527px;
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('handyman-banner.jpeg');
+  margin: 0, auto;
+  padding-top: 5px;
+}
 
-  }
 
   h1 {
     color: #F4E1A6;
@@ -19,15 +22,25 @@
     font-size: 30px;
   }
 
-.search-box {
-  width: 330px;
-  border: 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 1px 5px 1px #888888;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 20px 0px;
-}
 
 .form-group {
   display: flex;
+  input:focus-visible {
+  border: 1.5px solid #F4E1A6 !important;
+  outline: none;
+}
+}
+
+input::placeholder {
+  color: black;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-submit {
+  margin-left: 1rem;
+  border-radius: 23px;
+  background-color: #F4E1A6;
+  border: #FFE073;
+  margin-top: 0px;
 }
