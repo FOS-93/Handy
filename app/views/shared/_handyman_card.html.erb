@@ -17,8 +17,11 @@
         <div>
             <% handyman.skills.each do |skill| %>
               <div class="skill">
-                <p class= "<%=badges_for_skills(skill.name) %> mb-0"> <%= icons_for_skills(skill.name) %><%= skill.name %></p>
-                <p class= "level small fw-light"><%= skill.level %></p>
+                <div class= "<%=badges_for_skills(skill.name) %> mb-1">
+                  <%= icons_for_skills(skill.name) %>
+                  <%= skill.name %>
+                </div>
+                <%# <p class= "level small fw-light"><%= skill.level %>
               </div>
             <% end %>
           </div>
