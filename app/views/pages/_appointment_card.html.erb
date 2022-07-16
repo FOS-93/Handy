@@ -4,8 +4,10 @@
   <% end %>
   <p>Description: <%= a.description %></p>
   <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-  <p>Status: <%= a.status %></p>
-  <% if !a.reviewed? %>
-    <%= link_to 'Leave a review', new_appointment_review_path(a), class:"btn btn-info"%>
+  <p>Status: <strong><%= a.status %></strong></p>
+  <% if a.status == "Accepted" %>
+    <% if !a.reviewed? %>
+      <%= link_to 'Leave a review', new_appointment_review_path(a), class:"btn btn-info"%>
+    <% end %>
   <% end %>
 </div>
