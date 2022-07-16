@@ -22,8 +22,9 @@
   box-shadow: 1px 1px 10px lightgrey;
   overflow: hidden;
   border-radius: 15px;
-  width: 300px;
+  width: 75%;
   min-height: 415px;
+  margin: 0 auto;
 }
 
 .img{
@@ -112,7 +113,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 16px 0px;
 }
 
 .btn-info {
