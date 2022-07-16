@@ -2,6 +2,11 @@
   background: #ddd;
 }
 
+.card-body{
+  flex: 1 1 auto;
+  padding: 0rem 1rem;
+}
+
 .profile-area {
   padding: 0 0;
 }
@@ -14,11 +19,11 @@
 }
 
 .card{
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 10px lightgrey;
   overflow: hidden;
   border-radius: 15px;
   width: 300px;
-  min-height: 430px;
+  min-height: 415px;
 }
 
 .img{
@@ -38,10 +43,16 @@
 
 .review {
   text-align: center;
+  margin-top: 10px;
+  color: #305349;
 }
 
 .badge {
   border-radius: 15px;
+
+  i {
+    margin-right: 5px;
+  }
 }
 
 .btn {

@@ -14,14 +14,16 @@
     <div class="card-body">
       <div class="d-flex justify-content-center text-center row">
         <h5 class="card-info"><%= handyman.user.full_name %></h5>
-        <div>
-            <% handyman.skills.each do |skill| %>
-              <div class="skill">
-                <p class= "<%=badges_for_skills(skill.name) %> mb-0"> <%= icons_for_skills(skill.name) %><%= skill.name %></p>
-                <p class= "level small fw-light"><%= skill.level %></p>
+        <div class="d-flex flex-wrap justify-content-center p-2">
+          <% handyman.skills.each do |skill| %>
+            <div class="skill m-1">
+              <div class= "<%=badges_for_skills(skill.name) %> mb-1">
+                <%= icons_for_skills(skill.name) %>
+                <%= skill.name %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div class="text-center">
         <div>

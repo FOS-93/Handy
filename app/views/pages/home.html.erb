@@ -8,7 +8,7 @@
     <div class="banner">
       <div class="sign in">
         <% if user_signed_in? %>
-          <%= link_to "", new_user_session_path %>
+          <%= render 'shared/navbar_home' %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path, class: "btn-sign-in mt-0" %>
         <% end %>
