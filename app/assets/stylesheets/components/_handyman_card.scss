@@ -32,7 +32,8 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 7px solid #fff
+  border: 5px solid #F4E1A6; //#fff
+  object-fit: cover;
 }
 
 .review {
@@ -104,8 +105,8 @@
 }
 
 .btn-info {
-  background-color: #FFE073 !important;
-  border-color: #FFE073 !important;
+  background-color: #F4E1A6 !important;
+  border-color: #F4E1A6 !important;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
