@@ -1,9 +1,13 @@
 <div class="container">
-  <div class="d-flex justify-content-center mt-2" style="background: white; border-radius: 20px;">
+  <div class="d-flex justify-content-center mt-2 img-more-info" style="border-radius: 20px;">
     <div class="img-show" style="margin: 78px 0px 0px 0px;">
       <%= cl_image_tag(@handyman.user.photo.key) %>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
   <br>
   <div style="display: grid;">
     <div class="row">
@@ -44,8 +48,20 @@
       </div>
 
       <div class="col-4 appointment">
-
-
+        <div class="formulario">
+          <h4 >New appointment with Felipe</h4>
+          <form action="" method="post">
+            <label for="date" class="colocar_date">date<span class="obligatorio">*</span></label>
+            <input type="datetime-local" name="introducir_date" id="date" required="obligatorio">
+            <label for="Description" class="colocar_Description">Description<span class="obligatorio">*</span></label>
+            <input type="Description" name="introducir_Description" id="Description" required="obligatorio">
+            <label for="Skill" class="colocar_Skill ">Skill </label><input type="tel" name="introducir_Skill " id="Skill">
+            <div class="btn-submit">
+              <button type="submit" name="enviar_formulario" id="enviar">Create Appointment</button>
+            </div>
+          </form>
+          </div>
+        </div>
       </div>
     </div>
     <div class="linea"></div>
