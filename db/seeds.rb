@@ -72,7 +72,7 @@ sergio.photo.attach(io: file, filename: "Sergio.jpg", content_type: "image/jpeg"
 
 puts sergio.first_name
 
-# 1_________________________
+# 1 -- JORGE --
 jmunoz = User.create!(
   email: 'jmuñoz@gmail.com',
   first_name: 'Jorge',
@@ -86,18 +86,22 @@ jmunoz.photo.attach(io: file, filename: "jmuñoz.jpg", content_type: "image/jpeg
 
 puts jmunoz.first_name
 
+# 1 -- JORGE -- HANDY --
 jmunoz_h = Handyman.create!(
-  description: 'Tengo muy buena disposición cuando se trata de realizar trabajos. Me comprometo a hacer todo lo posible por cumplir con las expectativas y tambien seré honesto en caso de no poder realizar el trabajo',
+  description: 'I have very good disposition when it comes to work. I promise to do my best to meet expectations and will also be honest if I cant get the job done.',
   location: 'Las Condes, Santiago, Chile',
   user: jmunoz
 )
 
+# 1 -- JORGE -- SKILL --
 jmunoz_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
   description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: jmunoz_h
 )
+
+# 1 -- JORGE -- APPOINTMENT -- 1 ---
 jmunoz_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
   description: "I need a #{jmunoz_skill.name} to fix some minor issues at home",
@@ -107,15 +111,34 @@ jmunoz_ap = Appointment.create!(
   handyman: jmunoz_h
 )
 
-# Review.create!(
-#   stars: rand(4..5),
-#   content: "Its a good #{jmunoz_skill.name}, a professional one",
-#   user: fabrizio,
-#   appointment: jmunoz_ap,
-#   handyman: jmunoz_h
-# )
+# 1 -- JORGE -- REVIEW -- 1 ---
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a good #{jmunoz_skill.name}, a professional one",
+  user: fabrizio,
+  appointment: jmunoz_ap,
+  handyman: jmunoz_h
+)
 
-# 2_________________________
+# 1 -- JORGE -- REVIEW -- 2 ---
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a grate #{jmunoz_skill.name}, everythinwent well",
+  user: alan,
+  appointment: jmunoz_ap,
+  handyman: jmunoz_h
+)
+
+# 1 -- JORGE -- REVIEW -- 3 ---
+Review.create!(
+  stars: rand(1..3),
+  content: "Not my favourite handyman",
+  user: sergio,
+  appointment: jmunoz_ap,
+  handyman: jmunoz_h
+)
+
+# 2 -- FELIPE --
 faraya = User.create!(
   email: 'faraya@gmail.com',
   first_name: 'Felipe',
@@ -129,19 +152,22 @@ faraya.photo.attach(io: file, filename: "felipe.jpg", content_type: "image/jpeg"
 
 puts faraya.first_name
 
+# 2 -- FELIPE -- HANDYMAN --
 faraya_h = Handyman.create!(
-  description: 'Puedo mostrarme un poco tímido, pero creanme que en cuanto a carpintería soy todo un experto',
+  description: "I can be a bit shy, but believe me, when it comes to carpentry, I'm an expert",
   location: 'Peñalolen, Santiago, Chile',
   user: faraya
 )
 
+# 2 -- FELIPE -- SKILL --
 faraya_skill = Skill.create!(
-  name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
-  level: %w[Amateur Advanced Technical Professional].sample,
+  name: 'Carpenter',
+  level: 'Professional',
   description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: faraya_h
 )
 
+# 2 -- FELIPE -- APPOINTMENT -- 1
 faraya_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
   description: "I need a #{faraya_skill.name} to fix some minor issues at home",
@@ -151,6 +177,7 @@ faraya_ap = Appointment.create!(
   handyman: faraya_h
 )
 
+# 2 -- FELIPE -- REVIEW -- 1
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{faraya_skill.name}, a professional one",
@@ -159,7 +186,16 @@ Review.create!(
   handyman: faraya_h
 )
 
-# 3_________________________
+# 2 -- FELIPE -- REVIEW -- 2
+Review.create!(
+  stars: rand(4..5),
+  content: "Very nice guy, I totally recommend him!",
+  user: sergio,
+  appointment: faraya_ap,
+  handyman: faraya_h
+)
+
+# 3 -- CAMILA --
 cvillalobos = User.create!(
   email: 'cvillalobos@gmail.com',
   first_name: 'Camila',
@@ -173,18 +209,22 @@ cvillalobos.photo.attach(io: file, filename: "camila.jpg", content_type: "image/
 
 puts cvillalobos.first_name
 
+# 3 -- CAMILA -- HANDYMAN --
 cvillalobos_h = Handyman.create!(
-  description: 'Cuando se trata de herramientas, doy lo mejor de mi',
+  description: 'When it comes to tools, I give my best',
   location: 'Ñuñoa, Santiago, Chile',
   user: cvillalobos
 )
 
+# 3 -- CAMILA -- SKILL --
 cvillalobos_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
   description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: cvillalobos_h
 )
+
+# 3 -- CAMILA -- APPOINTMENT -- 1
 cvillalobos_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
   description: "I need a #{cvillalobos_skill.name} to fix some minor issues at home",
@@ -194,14 +234,25 @@ cvillalobos_ap = Appointment.create!(
   handyman: cvillalobos_h
 )
 
+# 3 -- CAMILA -- REVIEW -- 1
 Review.create!(
   stars: rand(4..5),
-  content: "Its a good #{cvillalobos_skill.name}, a professional one",
+  content: "Not only it's a good #{cvillalobos_skill.name}, she is also very funny",
   user: alan,
   appointment: cvillalobos_ap,
   handyman: cvillalobos_h
 )
-# 4_________________________
+
+# 3 -- CAMILA -- REVIEW -- 2
+Review.create!(
+  stars: rand(4..5),
+  content: "Camila was very polite and finished the job in time",
+  user: fabrizio,
+  appointment: cvillalobos_ap,
+  handyman: cvillalobos_h
+)
+
+# 4 -- FERNANDA --
 fperretta = User.create!(
   email: 'fperretta@gmail.com',
   first_name: 'Fernanda',
@@ -215,27 +266,41 @@ fperretta.photo.attach(io: file, filename: "fernanda.jpg", content_type: "image/
 
 puts fperretta.first_name
 
+# 4 -- FERNANDA -- HANDYMAN --
 fperretta_h = Handyman.create!(
-  description: 'Vengo un tiempo ocupando la plataforma y solo he tenido buenas experiencias. Conversemos y veamos que puedo hacer por ti',
+  description: "I have been using the platform for a while, and I've had only good experiences. Let's talk and see what can I do for you",
   location: 'Vitacura, Santiago, Chile',
   user: fperretta
 )
 
+# 4 -- FERNANDA -- SKILL --
 fperretta_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
   description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: fperretta_h
 )
+
+# 4 -- FERNANDA -- APPOINTMENT -- 1 --
 fperretta_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{fperretta_skill.name} to fix some minor issues at home",
+  description: "As we discussed on the chat, I'm booking you for this saturday",
   status: "Accepted",
   skill: fperretta_skill.name,
-  user: sergio,
+  user: alan,
   handyman: fperretta_h
 )
 
+# 4 -- FERNANDA -- REVIEW -- 1 --
+Review.create!(
+  stars: rand(4..5),
+  content: "She was on time and solved everything",
+  user: alan,
+  appointment: fperretta_ap,
+  handyman: fperretta_h
+)
+
+# 4 -- FERNANDA -- REVIEW -- 2 --
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{fperretta_skill.name}, a professional one",
@@ -244,7 +309,7 @@ Review.create!(
   handyman: fperretta_h
 )
 
-# 5_________________________
+# 5 -- FELIPE --
 fpino = User.create!(
   email: 'fpino@gmail.com',
   first_name: 'Felipe',
@@ -259,12 +324,14 @@ fpino.photo.attach(io: file, filename: "felipe2.jpg", content_type: "image/jpeg"
 
 puts fpino.first_name
 
+# 5 -- FELIPE -- HANDYMAN --
 fpino_h = Handyman.create!(
-  description: 'Ocupo esta plataforma como fuente extra de ingreso. Favor solo agendar verdaderos interesados',
+  description: 'I use this platform as an extra source of income. Please only schedule when interested',
   location: 'Las Condes, Santiago, Chile',
   user: fpino
 )
 
+# 5 -- FELIPE -- SKILL --
 fpino_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
@@ -272,24 +339,35 @@ fpino_skill = Skill.create!(
   handyman: fpino_h
 )
 
+# 5 -- FELIPE -- APPOINTMENT -- 1 --
 fpino_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{fpino_skill.name} to fix some minor issues at home",
+  description: "I need some extra help to finish a job",
   status: "Accepted",
   skill: fpino_skill.name,
   user: fabrizio,
   handyman: fpino_h
 )
 
+# 5 -- FELIPE -- REVIEW -- 1 --
 Review.create!(
   stars: rand(4..5),
-  content: "Its a good #{fpino_skill.name}, a professional one",
+  content: "Had an awesome time workin with him",
   user: fabrizio,
   appointment: fpino_ap,
   handyman: fpino_h
 )
 
-# 6_________________________
+# 5 -- FELIPE -- REVIEW -- 2 --
+Review.create!(
+  stars: rand(4..5),
+  content: "Its a good #{fpino_skill.name}, a professional one",
+  user: juliana,
+  appointment: fpino_ap,
+  handyman: fpino_h
+)
+
+# 6 -- LEONARDO --
 lmessa = User.create!(
   email: 'lmessa@gmail.com',
   first_name: 'Leonardo',
@@ -304,35 +382,59 @@ lmessa.photo.attach(io: file, filename: "lmessi.jpg", content_type: "image/jpeg"
 
 puts lmessa.first_name
 
+# 6 -- LEONARDO -- HANDYMAN --
 lmessa_h = Handyman.create!(
-  description: 'para algunos será una sorpresa encontrarme acá, pero la verdad es que siempre he tenido estos talentos ocultos',
+  description: 'for some it will be a surprise to find me here, but the truth is that I have always had these hidden talents',
   location: 'Maipu, Santiago, Chile',
   user: lmessa
 )
 
+# 6 -- LEONARDO -- SKILL --
 lmessa_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
   description: "#{rand(1..6)} years of experience. I am very tidy and professional.",
   handyman: lmessa_h
 )
+
+# 6 -- LEONARDO -- APPOINTMENT -- 1 --
 lmessa_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{lmessa_skill.name} to fix some minor issues at home",
+  description: "It would be grate if you could help me out",
   status: "Accepted",
   skill: lmessa_skill.name,
   user: juliana,
   handyman: lmessa_h
 )
 
+# 6 -- LEONARDO -- REVIEW -- 1 --
 Review.create!(
   stars: rand(4..5),
-  content: "Its a good #{lmessa_skill.name}, a professional one",
+  content: "Everything was up to my expectations",
   user: juliana,
   appointment: lmessa_ap,
   handyman: lmessa_h
 )
-# 7_________________________
+
+# 6 -- LEONARDO -- REVIEW -- 2 --
+Review.create!(
+  stars: rand(4..5),
+  content: "I'm gladd I could contact him",
+  user: fabrizio,
+  appointment: lmessa_ap,
+  handyman: lmessa_h
+)
+
+# 6 -- LEONARDO -- REVIEW -- 3 --
+Review.create!(
+  stars: rand(4..5),
+  content: "He was a very nice guy",
+  user: fabrizio,
+  appointment: lmessa_ap,
+  handyman: lmessa_h
+)
+
+# 7 -- ALEXIS --
 asanchez = User.create!(
   email: 'asanchez@gmail.com',
   first_name: 'Alexis',
@@ -347,12 +449,14 @@ asanchez.photo.attach(io: file, filename: "Alexis.jpg", content_type: "image/jpe
 
 puts asanchez.first_name
 
+# 7 -- ALEXIS -- HANDYMAN --
 asanchez_h = Handyman.create!(
-  description: 'Además de jugar al futbol, los trabajos manuales se me dan muy bien',
+  description: 'In addition to playing soccer, manual work is very good for me',
   location: 'La Florida, Santiago, Chile',
   user: asanchez
 )
 
+# 7 -- ALEXIS -- SKILL --
 asanchez_skill = Skill.create!(
   name: %w[Carpenter Plumber Blacksmith Electrician Gasfitter Turner Bricklayer Painter].sample,
   level: %w[Amateur Advanced Technical Professional].sample,
@@ -360,24 +464,17 @@ asanchez_skill = Skill.create!(
   handyman: asanchez_h
 )
 
+# 7 -- ALEXIS -- APPOINTMENT -- 1 --
 asanchez_ap = Appointment.create!(
   date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{asanchez_skill.name} to fix some minor issues at home",
+  description: "There is something wrong in my kitchen",
   status: "Accepted",
   skill: asanchez_skill.name,
   user: alan,
   handyman: asanchez_h
 )
 
-asanchez_ap = Appointment.create!(
-  date: Date.today.strftime('%B %e, %Y'),
-  description: "I need a #{asanchez_skill.name} to fix some minor issues at home",
-  status: "Accepted",
-  skill: asanchez_skill.name,
-  user: juliana,
-  handyman: asanchez_h
-)
-
+# 7 -- ALEXIS -- REVIEW -- 1 --
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{asanchez_skill.name}, a professional one",
@@ -386,14 +483,16 @@ Review.create!(
   handyman: asanchez_h
 )
 
+# 7 -- ALEXIS -- REVIEW -- 2 --
 Review.create!(
   stars: rand(4..5),
-  content: "Its a good #{asanchez_skill.name}, a professional one",
+  content: "I'm very grateful for his help",
   user: juliana,
   appointment: asanchez_ap,
   handyman: asanchez_h
 )
 
+# 7 -- ALEXIS -- REVIEW -- 3 --
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{asanchez_skill.name}, a professional one",
@@ -402,6 +501,7 @@ Review.create!(
   handyman: asanchez_h
 )
 
+# 7 -- ALEXIS -- REVIEW -- 4 --
 Review.create!(
   stars: rand(4..5),
   content: "Its a good #{asanchez_skill.name}, a professional one",
