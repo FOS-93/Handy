@@ -40,5 +40,37 @@
   height: auto;
 }
 
-.img-reviews {
+
+
+.img-more-info {
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('martillo.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 400px;
+}
+
+.img-show {
+  img {
+    position: absolute;
+    top: 257px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    margin: 20px auto 20px;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid #F4E1A6;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+
+.icons-show {
+  height: 100%;
+  margin-left: 22px;
+  justify-content: center;
+  margin-top: 3px;
 }
