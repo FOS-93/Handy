@@ -1,8 +1,11 @@
+
 .banner {
   height: 527px;
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('handyman-banner.jpeg');
+  margin: 0, auto;
+  padding-top: 5px;
 }
 
 
@@ -29,5 +32,5 @@
   border-radius: 23px;
   background-color: #F4E1A6;
   border: #FFE073;
-  margin-top: 20px;
+  margin-top: 0px;
 }
