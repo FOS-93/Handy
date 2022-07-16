@@ -1,38 +1,49 @@
-<div class="container">
-  <h1>My Chats</h1>
-  <div class="row">
-    <%# LISTA DE CHATS %>
-    <div class="chats col-4">
-      <% if current_user.handyman %>
-        <%# muestro los 2 chats %>
-        <% @chatrooms_user.each do |chat| %>
-          <%= render 'chat_card_user', chat: chat %>
-        <% end %>
-        <% @chatrooms_handyman.each do |chat| %>
-          <%= render 'chat_card_handy', chat: chat %>
-        <% end %>
-      <% else %>
-        <%# muestro chats de usuario %>
-        <% @chatrooms_user.each do |chat| %>
-          <%= render 'chat_card_user', chat: chat %>
-        <% end %>
-      <% end %>
-    </div>
-
-    <%# CONVERSACIÓN %>
-    <div class="col-8">
-      <div class="chatroom">
-
-        <h1>Select conversation</h1>
-
-        <%# espacio para mensajes %>
-        <div class="messages">
-          <p></p>
+<div class="empty-chat">
+  <div class="container">
+    <% unless current_user.chatrooms.empty?   %>
+      <h1>My Chats</h1>
+      <div class="row">
+        <%# LISTA DE CHATS %>
+        <div class="chats col-4">
+          <% if current_user.handyman %>
+            <%# muestro los 2 chats %>
+            <% @chatrooms_user.each do |chat| %>
+              <%= render 'chat_card_user', chat: chat %>
+            <% end %>
+            <% @chatrooms_handyman.each do |chat| %>
+              <%= render 'chat_card_handy', chat: chat %>
+            <% end %>
+          <% else %>
+            <%# muestro chats de usuario %>
+            <% @chatrooms_user.each do |chat| %>
+              <%= render 'chat_card_user', chat: chat %>
+            <% end %>
+          <% end %>
         </div>
+        <div class="col-8">
+          <div class="chatroom">
 
-        <%# Form para mandar mensajes %>
+            <h1>Select conversation</h1>
+
+            <%# espacio para mensajes %>
+            <div class="messages">
+              <p></p>
+            </div>
+
+            <%# Form para mandar mensajes %>
+          </div>
+        </div>
       </div>
-    </div>
-
+    <% else %>
+      <h1> <%= current_user.full_name %> it looks like you don't have any messages yet</h1>
+      <%= image_tag "https://cdn.dribbble.com/users/1418633/screenshots/6693173/empty-state.png" %>
+      <%= link_to  handymen_path do %>
+        <i class="fas fa-arrow-left"> <h3>return</h3> </i>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
+
+
+    <%# CONVERSACIÓN %>
