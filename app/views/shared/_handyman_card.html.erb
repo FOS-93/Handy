@@ -4,7 +4,7 @@
   </div>
   <% if handyman.reviews.empty? %>
     <div>
-      <p class="review">No reviews yet</p>
+      <p class="review"> <%= '<i class="fas fa-comment-slash"></i>'.html_safe %> </p>
     </div>
   <% else %>
     <p class="review"><%= '<i class="fas fa-solid fa-star"></i>'.html_safe * handyman.avr_rating %> (<%= handyman.rating_count %>) </p>
