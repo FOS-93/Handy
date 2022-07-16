@@ -37,10 +37,10 @@
     <% else %>
       <div class="empty-mailbox" style= "margin-left: 170px; margin-top: 40px;">
         <h3> <%= current_user.first_name %> it looks like you don't have any messages yet</h3>
-        <%= image_tag "empty_icon.png" %>
         <%= link_to  handymen_path do %>
-          <i class="d-flex fas fa-arrow-left"> <h4>return</h4> </i>
+          <i class="d-flex fas fa-arrow-left" style="justify-content: end;"> <h4>back</h4> </i>
         <% end %>
+        <%= image_tag "empty_icon.png" %>
       </div>
     <% end %>
   </div>
