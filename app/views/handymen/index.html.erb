@@ -21,7 +21,7 @@
   </div>
 
   <%# MAPA %>
-  <div class="col-6 position-sticky" style="width: 40%; height: 95vh; margin-left: 87px; top: 20px; border-radius: 23px;"
+  <div class="col-6 position-sticky" style="width: 48%; height: 95vh; top: 20px; border-radius: 23px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
