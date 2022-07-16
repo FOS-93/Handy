@@ -12,11 +12,27 @@
   <div style="display: grid;">
     <div class="row">
       <div class="col-8">
-        <% @handyman.skills.each do |skill| %>
-        <h3><%= @handyman.user.full_name%> <%= icons_for_skills(skill.name) %></h3>
+        <div class="d-flex">
+          <div>
+            <% @handyman.skills.each do |skill| %>
+            <h3><%= @handyman.user.full_name%> <%= icons_for_skills(skill.name) %></h3>
+          </div>
+          <div>
+            <% if @handyman.chatrooms.where(user_id: current_user.id).present? %>
+              <%= link_to "Chat and arrange details", chatroom_path(@handyman.chatrooms.where(user_id: current_user.id).first), class:"btn btn-info", style:"margin-left: 80px;" %>
+            <% else %>
+              <%= link_to "Chat and arrange details", handyman_chatrooms_path(@handyman), method:"post", class:"btn btn-info", style:"margin-left: 80px;" %>
+            <% end %>
+          </div>
+        </div>
         <!-- linea -->
         <div class="linea"></div>
-        <h5><%= skill.name %> <%= '<i class="fas fa-solid fa-star"></i>'.html_safe * @handyman.avr_rating %></h5>
+        <% @handyman.skills.each do |skill| %>
+              <div class="skill">
+                <p class= "<%=badges_for_skills(skill.name) %> mb-0"> <%= icons_for_skills(skill.name) %><%= skill.name %></p>
+                <p class= "level small fw-light"><%= skill.level %></p>
+              </div>
+        <% end %>
         <p><%= skill.description %></p>
         <% end %>
          <% if @handyman.rating_count.zero? %>
@@ -49,17 +65,15 @@
 
       <div class="col-4 appointment">
         <div class="formulario">
-          <h4 >New appointment with Felipe</h4>
-          <form action="" method="post">
-            <label for="date" class="colocar_date">date<span class="obligatorio">*</span></label>
-            <input type="datetime-local" name="introducir_date" id="date" required="obligatorio">
-            <label for="Description" class="colocar_Description">Description<span class="obligatorio">*</span></label>
-            <input type="Description" name="introducir_Description" id="Description" required="obligatorio">
-            <label for="Skill" class="colocar_Skill ">Skill </label><input type="tel" name="introducir_Skill " id="Skill">
-            <div class="btn-submit">
-              <button type="submit" name="enviar_formulario" id="enviar">Create Appointment</button>
+          <h4>New appointment with <%= @handyman.user.first_name %></h4>
+           <%= simple_form_for [@handyman, @appointment] do |f|  %>
+            <%= f.input :date %>
+            <%= f.input :description %>
+            <%= f.input :skill, :collection => @handyman.skills %>
+            <div class="btn-submit-2">
+            <%= f.submit %>
             </div>
-          </form>
+          <% end %>
           </div>
         </div>
       </div>

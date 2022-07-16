@@ -14,7 +14,7 @@
     margin: 2rem;
     text-align: center;
   }
-  input{
+   input{
     background-color: #fbfbfb;
     width: 408px;
     height: 40px;
@@ -28,20 +28,32 @@
   }
 }
 
+.form-select:focus {
+  border-color: #F4E1A6 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  border-color: #F4E1A6 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
 label{
   display: block;
   float: center;
 }
 
 
-.btn-submit {
-  button {
+.btn-submit-2 {
+  input {
     height: 45px;
     padding-left: 5px;
     padding-right: 5px;
     margin-bottom: 20px;
     margin-top: 10px;
-    background-color: #F4E1A6;
+    background: #F4E1A6 !important;
     border-color: #F4E1A6;
     border-style: solid;
     border-radius: 10px;
