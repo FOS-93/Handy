@@ -1,8 +1,8 @@
 .how-it-works{
   display: flex;
   margin-top: 40px;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: 40px;
+  margin-right: 40px;
   align-items: center;
   justify-content: space-between;
 
@@ -14,5 +14,7 @@
   h4{
     margin-top: 25px;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
   }
 }
