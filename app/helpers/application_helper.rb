@@ -14,7 +14,7 @@ module ApplicationHelper
     when "Turner"
       '<i class="fas fa-screwdriver"></i> '.html_safe
     when "Bricklayer"
-      '<i class="fas fa-chimney"></i> '.html_safe
+      '<i class="fas fa-home"></i> '.html_safe
     when "Painter"
       '<i class="fas fa-paint-roller"></i> '.html_safe
     end
@@ -25,17 +25,17 @@ module ApplicationHelper
     when "Carpenter"
       "badge p-2 bg-primary"
     when "Plumber"
-      "badge p-2 bg-secondary"
+      "badge p-2 bg-dark"
     when "Blacksmith"
-      "badge p-2 bg-warning"
+      "badge p-2 bg-dark"
     when "Electrician"
-      "badge p-2 bg-success"
+      "badge p-2 bg-dark"
     when "Gasfitter"
-      "badge p-2 bg-danger"
+      "badge p-2 bg-dark"
     when "Turner"
-      "badge p-2 bg-info"
+      "badge p-2 bg-dark"
     when "Bricklayer"
-      "badge p-2 bg-secondary"
+      "badge p-2 bg-dark"
     when "Painter"
       "badge p-2 bg-dark"
     end
