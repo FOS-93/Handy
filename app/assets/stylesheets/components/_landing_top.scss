@@ -25,6 +25,16 @@
 
 .form-group {
   display: flex;
+  input:focus-visible {
+  border: 1.5px solid #F4E1A6 !important;
+  outline: none;
+}
+}
+
+input::placeholder {
+  color: black;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-submit {
