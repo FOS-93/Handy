@@ -23,10 +23,25 @@
 
 .form-group {
   display: flex;
+
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 23px;
+  }
+
   input:focus-visible {
-  border: 1.5px solid #F4E1A6 !important;
-  outline: none;
+    border: 1.5px solid #F4E1A6 !important;
+    outline: none;
+  }
 }
+
+@media (min-width: 768px) {
+  .form-group {
+    input {
+      width: 588px;
+    }
+  }
 }
 
 input::placeholder {
