@@ -18,12 +18,18 @@
   margin-bottom: 60px;
 }
 
+/* @media only screen and (max-width: 600px) {
+  .background {
+    background-color: red;
+  }
+} */
+
 .card{
   box-shadow: 1px 1px 10px lightgrey;
   overflow: hidden;
   border-radius: 15px;
-  width: 75%;
-  min-height: 415px;
+  width: 90%;
+  height: 480px;
   margin: 0 auto;
 }
 
@@ -114,6 +120,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px 0px;
+  margin-bottom: 16px;
 }
 
 .btn-info {
@@ -132,12 +139,17 @@
   .cards {
     grid-template-columns: 1fr;
   }
+
+  .card {
+    width: 75%;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+
   }
 }
 
@@ -145,6 +157,7 @@
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
   }
 }
 
