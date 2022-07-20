@@ -6,7 +6,7 @@ class HandymenController < ApplicationController
       @handyman = Handyman.global_search(params[:search][:query])
     else
       # Hacemos un reject para sacar al Handyman.id y liste solo los Handyman del resto
-      @handyman = Handyman.where.not(id: current_user.id)
+      @handyman = Handyman.where.not(user_id: current_user.id)
     end
     @markers = @handyman.geocoded.map do |handyman|
       {
