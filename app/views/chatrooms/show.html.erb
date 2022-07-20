@@ -25,8 +25,9 @@
         data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
+        <!-- Button trigger modal -->
         <% unless (@chatroom.handyman.user.id == current_user.id) %>
-          <%= link_to "Book", new_handyman_appointment_path(@chatroom.handyman), class:"btn btn-info m-2" %>
+          <p class="btn btn-info shadow-sm mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Book</p>
         <% end %>
 
         <%= link_to handyman_path(@chatroom.handyman) do %>
@@ -52,6 +53,31 @@
           %>
           <%= f.submit "Send", class: "btn btn-primary" %>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-radius: 10px">
+      <div class="modal-header">
+        <h4 class="modal-title" id="staticBackdropLabel">New appointment with <%= @chatroom.handyman.user.first_name %></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="formulario">
+          <%= simple_form_for [@chatroom.handyman, @appointment] do |f|  %>
+            <%= f.input :date %>
+            <%= f.input :description %>
+            <%= f.input :skill, :collection => @chatroom.handyman.skills %>
+            <div class="btn-submit-2">
+            <%= f.submit %>
+            </div>
+          <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
