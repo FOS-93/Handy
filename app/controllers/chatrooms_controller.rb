@@ -22,5 +22,6 @@ class ChatroomsController < ApplicationController
     index
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @appointment = Appointment.new
   end
 end
