@@ -9,79 +9,112 @@
   <div style="display: grid;" class="mt-5">
     <div class="row">
       <div class="col-7">
+        <h3 class="d-flex">My Profile</h3>
+        <br>
         <div class="d-flex">
-          <h4 style="margin: 4px 50px 0px 0px;">My Profile</h4>
           <h3><%= @user.full_name %></h3>
-          <%= link_to edit_user_registration_path, class:"btn btn-secondary" do %>
-            <i class="fas fa-user-edit"></i>
-          <% end %>
         </div>
         <div>
+          <div class="m-2">
           <i class="fas fa-solid fa-envelope"> </i> <%= @user.email %>
+          </div>
           <p>Member since: <%= @user.created_at.strftime('%B %e, %Y') %></p>
           <% unless @user.is_handyman? %>
-            <%= link_to "Create your Handy profile", new_handyman_path(@user), class:"btn btn-secondary" %>
+            <%= link_to "Create your Handy profile", new_handyman_path(@user), class:"btn btn-secondary", style:"margin: 0px 0 36px 0px; background: #F4E1A6; border: none; color: black;" %>
+          <% end %>
+        </div>
+        <div class="d-flex justify-content-end" style="margin-top: -51px;">
+          <%= link_to edit_user_registration_path do %>
+            <i class="fas fa-pen-square fa-lg" style="color: #6c757d; margin: 0px 0px 0px 16px;"></i>
           <% end %>
         </div>
         <!-- linea -->
         <div class="linea"></div>
+        <% if @user.is_handyman? %>
         <div class="d-flex">
           <h4 style="margin: 30px 50px 0px 0px;">My Handyman Profile</h4>
-          <%= link_to 'Delete Handyman', @user.handyman, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info"%>
+        </div>
+         <p style="margin: 0;"><i class="fas fa-map-marker-alt"></i> <%= @user.handyman.location %></p>
+        <br>
+        <% if @user.handyman.rating_count.zero? %>
+          <p style="margin: 0;"> No reviews yet</p>
+        <% else %>
+           <p style="margin: 0;">Reviews: (<%= @user.handyman.rating_count %>) <%= '<i class=" text-align-center fas fa-solid fa-star"></i>'.html_safe * @user.handyman.avr_rating %></p>
+        <% end %>
+
+         <p style="margin: 0;"><%= @user.handyman.description %></p>
+
+        <div class="d-flex justify-content-end" style="margin-top: -35px;">
+          <div style="margin: 2px;">
+         <%= link_to @user.handyman, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash fa-lg" style="color: #6c757d; margin: 0px 0px 0px 16px;"></i>
+          <% end %>
+          </div>
+          <div style="margin: 2px;">
+          <%= link_to edit_handyman_path(@user.handyman) do %>
+          <i class="fas fa-pen-square fa-lg" style="color: #6c757d; margin: 0px 0px 0px 16px;"></i>
+          <% end %>
+          </div>
         </div>
 
-        <% if @user.handyman.rating_count.zero? %>
-          <p> No reviews yet</p>
-        <% else %>
-          <p>Reviews: (<%= @user.handyman.rating_count %>) <%= '<i class=" text-align-center fas fa-solid fa-star"></i>'.html_safe * @user.handyman.avr_rating %></p>
-        <% end %>
-        <p><i class="fas fa-location-arrow"></i> <%= @user.handyman.location %></p>
-        <p><%= @user.handyman.description %></p>
-        <%= link_to edit_handyman_path(@user.handyman), class:"btn btn-info" do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
         <div class="linea"></div>
 
-        <% @user.handyman.skills.each do |skill| %>
-          <div class="d-flex">
-          <h4 style="margin: 30px 50px 0px 0px;">My Skills</h4>
-          <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info"%>
+        <div>
+          <div class="d-flex justify-content-between">
+            <h4 style="margin: 30px 50px 0px 0px;">My Skills</h4>
+            <%= link_to 'Add Skill', new_handyman_skill_path(@user.handyman), class:"btn btn-info", style:"margin-top: 23px;" %>
           </div>
-          <p><%= skill.name %> - <%= skill.level %></p>
-          <p><%= skill.description %></p>
+          <br>
+          <% @user.handyman.skills.each do |skill| %>
 
-          <%= link_to 'Edit Skill', edit_skill_path(skill), class:"btn btn-info"%>
-          <%= link_to 'Delete Skill', skill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>
+          <div class="d-flex">
+            <p style="margin: 0;"><%= skill.name %> - <%= skill.level %></p>
+            <div>
+            <%= link_to skill, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash fa-lg" style="color: #6c757d; margin: 0px 0px 0px 16px;"></i>
+              <% end %>
+            </div>
+            <div>
+            <%= link_to edit_skill_path(skill) do %>
+              <i class="fas fa-pen-square fa-lg" style="color: #6c757d; margin: 0px 0px 0px 16px;"></i>
+              <% end %>
+            </div>
+          </div>
+            <p><%= skill.description %></p>
+          <% end %>
+        </div>
         <% end %>
-
       </div>
 
 
       <div class="col-5">
          <%# INFO RESERVAS USUARIO %>
-            <div class="col-md">
-              <h1>My Appointments</h1>
+            <div class="col-md card-profile">
+              <h4>My Appointments  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
               <% @user.appointments.each do |a| %>
                 <div class="profile-card">
                   <%= link_to handyman_path(a.handyman) do %>
-                    <p>Handyman: <%= a.handyman.user.full_name %></p>
+
+                    <h5>Handyman: <%= a.handyman.user.full_name %></h5>
                   <% end %>
                   <p>Description: <%= a.description %></p>
                   <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-                  <p>Status: <strong><%= a.status %></strong></p>
-                  <% if a.status == "Accepted" %>
-                    <% if !a.reviewed? %>
-                      <%= link_to 'Leave a review', new_appointment_review_path(a), class:"btn btn-info"%>
+                  <p class="m-2">Status: <strong class="status"><%= a.status %></strong></p>
+                    <% if a.status == "Accepted" %>
+                    <div class="m-3 status">
+                      <% if !a.reviewed? %>
+                        <%= link_to 'Leave a review', new_appointment_review_path(a) %>
+                      <% end %>
+                      </div>
                     <% end %>
-                  <% end %>
                 </div>
               <% end %>
             </div>
 
           <%# INFO HANDYMAN REQUEST %>
           <% if @user.handyman %>
-            <div class="col-md">
-              <h1>My Requests</h1>
+            <div class="col-md card-profile card-profile">
+              <h4>My Requests  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
               <% @user.handyman.appointments.each do |a| %>
                 <div class="profile-card">
                   <div>
@@ -95,7 +128,7 @@
                       <i class="fas fal fa-calendar-alt"></i><%= " " + a.date.strftime('%B %e, %Y') %>
                     </div>
                   </div>
-                  <p>Status: <strong><%= a.status %></strong></p>
+                  <p class="m-3">Status: <strong class="status"><%= a.status %></strong></p>
                   <% if a.status == "Pending" %>
                     <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
                     <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
@@ -107,6 +140,5 @@
       </div>
     </div>
   </div>
-
-
 </div>
+<%= render 'shared/footer' %>
