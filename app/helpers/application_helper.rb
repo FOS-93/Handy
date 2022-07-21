@@ -10,7 +10,7 @@ module ApplicationHelper
     when "Electrician"
       '<i class="fas fa-bolt"></i> '.html_safe
     when "Gasfitter"
-      '<i class="fas fa-fire-alt"></i> '.html_safe
+      '<i class="fas fa-dumpster-fire"></i> '.html_safe
     when "Turner"
       '<i class="fas fa-screwdriver"></i> '.html_safe
     when "Bricklayer"
