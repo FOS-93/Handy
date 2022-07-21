@@ -4,8 +4,10 @@
         <%= cl_image_tag(current_user.photo.key) %>
     </div>
   </div>
+
   <br>
   <br>
+
   <div style="display: grid;" class="mt-5">
     <div class="row">
       <div class="col-7">
@@ -134,7 +136,7 @@
                     <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
                   <% end %>
                 </div>
-              <% end  %>
+              <% end %>
             </div>
           <% end %>
       </div>
