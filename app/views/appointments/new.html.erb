@@ -6,7 +6,7 @@
         <%= f.input :date %>
         <%= f.input :description %>
         <%= f.input :skill, :collection => @handyman.skills %>
-        <%= f.submit "Create Appointment", class:"btn-appointment-new position-absolute px-3 btn btn-outline-dark"%>
+        <%= f.submit "Book", class:"btn-appointment-new position-absolute px-3 btn btn-outline-dark"%>
       <% end %>
 
       <%= link_to 'Back', root_path, class:"px-5 btn btn-info mt-2"%>
