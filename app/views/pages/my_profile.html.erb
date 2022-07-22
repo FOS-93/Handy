@@ -4,8 +4,10 @@
         <%= cl_image_tag(current_user.photo.key) %>
     </div>
   </div>
+
   <br>
   <br>
+
   <div style="display: grid;" class="mt-5">
     <div class="row">
       <div class="col-7">
@@ -88,55 +90,53 @@
 
 
       <div class="col-5">
-         <%# INFO RESERVAS USUARIO %>
-            <div class="col-md card-profile">
-              <h4>My Appointments  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
-              <% @user.appointments.each do |a| %>
-                <div class="profile-card">
-                  <%= link_to handyman_path(a.handyman) do %>
+        <%# INFO RESERVAS USUARIO %>
+        <div class="col-md text-center">
+          <h4>My Appointments  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
+          <% @user.appointments.each do |a| %>
+            <div class="card-profile">
+              <%= link_to handyman_path(a.handyman) do %>
+                <h5><strong>🔧</strong> <%= a.handyman.user.full_name %></h5>
+              <% end %>
+              <p><strong>🗒️</strong> <%= a.description %></p>
+              <p><strong>📅</strong> <%= a.date.strftime('%B %e, %Y') %></p>
 
-                    <h5>Handyman: <%= a.handyman.user.full_name %></h5>
-                  <% end %>
-                  <p>Description: <%= a.description %></p>
-                  <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-                  <p class="m-2">Status: <strong class="status"><%= a.status %></strong></p>
-                    <% if a.status == "Accepted" %>
-                    <div class="m-3 status">
-                      <% if !a.reviewed? %>
-                        <%= link_to 'Leave a review', new_appointment_review_path(a) %>
-                      <% end %>
-                      </div>
-                    <% end %>
-                </div>
+              <% if a.reviewed? %>
+                <p><strong class="status">Reviewed ✅</strong></p>
+              <% else %>
+                <p><strong class="status"><%= a.status %></strong></p>
+              <% end %>
+
+              <% if a.status == "Accepted" %>
+                <% if !a.reviewed? %>
+                  <p class="mb-3"><%= link_to 'Leave a review', new_appointment_review_path(a), class:"status" %></p>
+                <% end %>
               <% end %>
             </div>
-
-          <%# INFO HANDYMAN REQUEST %>
-          <% if @user.handyman %>
-            <div class="col-md card-profile card-profile">
-              <h4>My Requests  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
-              <% @user.handyman.appointments.each do |a| %>
-                <div class="profile-card">
-                  <div>
-                    <div class="m-1">
-                      <i class="fas fal fa-address-card"></i><%= " " + a.user.full_name %>
-                    </div>
-                    <div class="m-1">
-                      <i class="fas fa-info"></i><%= " " + a.description %>
-                    </div>
-                    <div class="m-1">
-                      <i class="fas fal fa-calendar-alt"></i><%= " " + a.date.strftime('%B %e, %Y') %>
-                    </div>
-                  </div>
-                  <p class="m-3">Status: <strong class="status"><%= a.status %></strong></p>
-                  <% if a.status == "Pending" %>
-                    <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-                    <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
-                  <% end %>
-                </div>
-              <% end  %>
-            </div>
           <% end %>
+        </div>
+
+        <%# INFO HANDYMAN REQUEST %>
+        <% if @user.handyman %>
+          <div class="col-md text-center">
+            <h4>My Requests  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
+            <% @user.handyman.appointments.each do |a| %>
+              <div class="card-profile">
+                <div>
+                  <h5><strong>👤</strong> <%= a.user.full_name %></h5>
+                  <p><strong>🗒️</strong> <%= a.description %></p>
+                  <p><strong>📅</strong> <%= a.date.strftime('%B %e, %Y') %></p>
+                </div>
+                <% if a.status == "Pending" %>
+                  <%= link_to 'Accept', accept_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+                  <%= link_to 'Reject', reject_appointment_path(a), method: :put, class: "btn btn-secondary"%>
+                <% else %>
+                  <p class="m-3"><strong class="status"><%= a.status %></strong></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
