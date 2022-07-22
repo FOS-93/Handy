@@ -6,7 +6,7 @@
   </div>
   <br>
   <br>
-  <div>
+          <div>
             <% if @handyman.chatrooms.where(user_id: current_user.id).present? %>
               <%= link_to "Chat and arrange details", chatroom_path(@handyman.chatrooms.where(user_id: current_user.id).first), class:"btn btn-info" %>
             <% else %>
@@ -19,18 +19,18 @@
       <div class="col-8">
         <div class="d-flex">
           <div>
-            <% @handyman.skills.each do |skill| %>
-            <div class="d-flex">
             <h3><%= @handyman.user.full_name%></h3>
+            <p><i class="card-info fas fa-map-marker-alt me-3"></i><%= @handyman.location %></p>
+            <% @handyman.skills.each do |skill| %>
+              <div class="d-flex">
             <p class= "<%=badges_for_skills(skill.name) %> mb-0 icons-show"> <%= icons_for_skills(skill.name) %><%= skill.name %></p>
+            <p><%= skill.description %></p>
+            <% end %>
             </div>
           </div>
         </div>
         <!-- linea -->
         <div class="linea"></div>
-        <p><%= skill.description %></p>
-        <p><i class="card-info fas fa-map-marker-alt me-3"></i><%= @handyman.location %></p>
-        <% end %>
          <% if @handyman.rating_count.zero? %>
          <p></p>
          <%else%>
