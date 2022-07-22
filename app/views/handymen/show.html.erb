@@ -37,7 +37,7 @@
         <!-- linea -->
         <div class="linea"></div>
          <% if @handyman.rating_count.zero? %>
-         <p></p>
+          <p></p>
          <%else%>
          <div class="d-flex">
          <h3 class="mt-3" style="mergin: 0 0 24px 0;">Reviews</h3>
@@ -66,6 +66,7 @@
 
       </div>
 
+      <%# formulario %>
       <div class="col-4 appointment">
         <div class="formulario">
           <h4>New appointment with <%= @handyman.user.first_name %></h4>
