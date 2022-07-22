@@ -90,28 +90,28 @@
 
 
       <div class="col-5">
-         <%# INFO RESERVAS USUARIO %>
-            <div class="col-md card-profile">
-              <h4>My Appointments  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
-              <% @user.appointments.each do |a| %>
-                <div class="profile-card">
-                  <%= link_to handyman_path(a.handyman) do %>
+        <%# INFO RESERVAS USUARIO %>
+        <div class="col-md text-center">
+          <h4>My Appointments  <i class="fas fa-chevron-down fa-xs" style="color: #6c757d"></i></h4>
+          <% @user.appointments.each do |a| %>
+            <div class="card-profile">
+              <%= link_to handyman_path(a.handyman) do %>
 
-                    <h5>Handyman: <%= a.handyman.user.full_name %></h5>
-                  <% end %>
-                  <p>Description: <%= a.description %></p>
-                  <p>When: <%= a.date.strftime('%B %e, %Y') %></p>
-                  <p class="m-2">Status: <strong class="status"><%= a.status %></strong></p>
-                    <% if a.status == "Accepted" %>
-                    <div class="m-3 status">
-                      <% if !a.reviewed? %>
-                        <%= link_to 'Leave a review', new_appointment_review_path(a) %>
-                      <% end %>
-                      </div>
-                    <% end %>
-                </div>
+                <h5><strong>🔧</strong> <%= a.handyman.user.full_name %></h5>
               <% end %>
+              <p><strong>🗒️</strong> <%= a.description %></p>
+              <p><strong>📅</strong> <%= a.date.strftime('%B %e, %Y') %></p>
+              <p class="m-2">Status: <strong class="status"><%= a.status %></strong></p>
+                <% if a.status == "Accepted" %>
+                <div class="m-3 status">
+                  <% if !a.reviewed? %>
+                    <%= link_to 'Leave a review', new_appointment_review_path(a) %>
+                  <% end %>
+                  </div>
+                <% end %>
             </div>
+          <% end %>
+        </div>
 
           <%# INFO HANDYMAN REQUEST %>
           <% if @user.handyman %>
