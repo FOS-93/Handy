@@ -31,6 +31,7 @@ class HandymenController < ApplicationController
     @marker = [{
       lat: @handyman.latitude,
       lng: @handyman.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { handyman: @handyman }),
       image_url: helpers.asset_url("wrench.png")
     }]
     @appointment = Appointment.new
