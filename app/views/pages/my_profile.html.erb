@@ -67,6 +67,7 @@
           <br>
           <% @user.handyman.skills.each do |skill| %>
 
+          <p class= "<%=badges_for_skills(skill.name) %> mb-0 icons-show" style="margin: 0;"> <%= icons_for_skills(skill.name) %><%= skill.name %></p>
           <div class="d-flex">
             <p style="margin: 0;"><%= skill.name %> - <%= skill.level %></p>
             <div>
