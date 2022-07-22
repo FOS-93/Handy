@@ -44,11 +44,9 @@
   }
 }
 
-@media (min-width: 768px) {
-  .form-group {
-    input {
-      width: 588px;
-    }
+@media only screen and (min-width: 768px) {
+  .search-input {
+    width: 588px;
   }
 }
 
